@@ -5,8 +5,19 @@ module.exports = {
       './src/**/*.js',
     ],
   },
+  future: {
+    purgeLayersByDefault: true,
+  },
   theme: {
-    extend: {},
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+    },
+    extend: {
+      colors: {
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+      },
+    },
     screens: {
       sm: '600px',
       md: '768px',
@@ -14,6 +25,9 @@ module.exports = {
       xl: '1200px',
     },
   },
-  variants: {},
+  variants: {
+    textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
+  },
   plugins: [],
 }

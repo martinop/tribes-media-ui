@@ -1,13 +1,7 @@
-import React from 'react';
-import { addDecorator } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import Layout from './layout';
+import '../src/css/tribes-media-ui.css';
+import { applyTheme } from '../src/theme/utils';
 
-addDecorator(storyFn => <Layout>{storyFn()}</Layout>);
-addDecorator(withInfo({
-  inline: true,
-  propTablesExclude: [Layout]
-}));
+applyTheme({ primary: "#680FFB", secondary: "blue" })
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
