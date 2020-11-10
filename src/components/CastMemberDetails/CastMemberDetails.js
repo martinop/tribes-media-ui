@@ -14,7 +14,7 @@ function Image(props) {
 function CastMemberDetails(props) {
 	const { castLabel, filmographyLabel, biography, emptyLabel, name, imgSrc, movies } = props;
 	return (
-		<div className="cast-member-details bg-black text-white font-poppins p-8 md:p-0">
+		<div className="cast-member-details bg-black text-white font-poppins p-3 md:p-0">
 			<div className="flex flex-col md:flex-row">
 				<div className="w-full md:w-4/5 md:pr-6">
 					<h5 className="mb-3 uppercase text-center md:text-left">{castLabel}</h5>
