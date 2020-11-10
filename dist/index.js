@@ -3,10 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
-var theme = {
-  primary: '#61DAFB',
-  secondary: '#254E70'
-};
-var _default = theme;
-exports.default = _default;
+Object.defineProperty(exports, "button", {
+  enumerable: true,
+  get: function get() {
+    return _button.default;
+  }
+});
+
+var _button = _interopRequireDefault(require("./button"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
