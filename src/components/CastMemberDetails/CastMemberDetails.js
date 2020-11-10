@@ -1,19 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
+
+function Image(props) {
+	const { src, name } = props;
+	return (
+		<>
+			<img src={src} alt={name} className="cmd-image" />
+			<div className="cmd-image-overlay" />
+		</>
+	)
+}
 function CastMemberDetails(props) {
 	const { castLabel, filmographyLabel, biography, emptyLabel, name, imgSrc, movies } = props;
 	return (
 		<div className="cast-member-details bg-black text-white font-poppins">
-			<div className="flex">
-				<div className="w-4/5 pr-6">
-					<h5 className="mb-3 uppercase">{castLabel}</h5>
-					<h2 className="text-3xl font-bold mb-3 uppercase">{name}</h2>
-					<p className="text-sm leading-7">{biography}</p>
+			<div className="flex flex-col md:flex-row">
+				<div className="w-full md:w-4/5 md:pr-6">
+					<h5 className="mb-3 uppercase text-center md:text-left">{castLabel}</h5>
+					<div className='block relative w-3/5 mx-auto md:hidden'>
+						<Image src={imgSrc} name={name} />
+					</div>
+					<h2 className="text-base md:text-3xl font-bold mb-3 uppercase text-center md:text-left">{name}</h2>
+					<p className="text-xs md:text-sm leading-7 font-normal mb-6 mt-6 md:mt-0 md:mb-0">{biography}</p>
 				</div>
-				<div className='relative w-1/5'>
-					<img src={imgSrc} alt={name} className="cmd-image" />
-					<div className="cmd-image-overlay" />
+				<div className='hidden md:block relative w-1/5'>
+					<Image src={imgSrc} name={name} />
 				</div>
 			</div>
 			<div>

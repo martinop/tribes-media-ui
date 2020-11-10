@@ -316,6 +316,10 @@ template {
  * Add the correct display in IE 10.
  */
 
+[hidden] {
+  display: none;
+}
+
 /**
  * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
  * A thin layer on top of normalize.css that provides a starting point more
@@ -566,6 +570,10 @@ video {
   background-color: var(--color-primary);
 }
 
+.block{
+  display: block;
+}
+
 .flex{
   display: flex;
 }
@@ -578,12 +586,24 @@ video {
   display: contents;
 }
 
+.hidden{
+  display: none;
+}
+
+.flex-col{
+  flex-direction: column;
+}
+
 .justify-between{
   justify-content: space-between;
 }
 
 .font-poppins{
   font-family: Poppins, sans-serif;
+}
+
+.font-normal{
+  font-weight: 400;
 }
 
 .font-bold{
@@ -594,20 +614,21 @@ video {
   font-size: 0.75rem;
 }
 
-.text-sm{
-  font-size: 0.875rem;
+.text-base{
+  font-size: 1rem;
 }
 
 .text-lg{
   font-size: 1.125rem;
 }
 
-.text-3xl{
-  font-size: 1.875rem;
-}
-
 .leading-7{
   line-height: 1.75rem;
+}
+
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mb-1{
@@ -622,6 +643,14 @@ video {
   margin-top: 1rem;
 }
 
+.mt-6{
+  margin-top: 1.5rem;
+}
+
+.mb-6{
+  margin-bottom: 1.5rem;
+}
+
 .p-8{
   padding: 2rem;
 }
@@ -631,12 +660,12 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.pr-6{
-  padding-right: 1.5rem;
-}
-
 .relative{
   position: relative;
+}
+
+.text-center{
+  text-align: center;
 }
 
 .text-white{
@@ -653,8 +682,12 @@ video {
   width: 20%;
 }
 
-.w-4\/5{
-  width: 80%;
+.w-3\/5{
+  width: 60%;
+}
+
+.w-full{
+  width: 100%;
 }
 
 @keyframes spin{
@@ -692,6 +725,45 @@ video {
 }
 
 @media (min-width: 768px){
+  .md\:block{
+    display: block;
+  }
+
+  .md\:hidden{
+    display: none;
+  }
+
+  .md\:flex-row{
+    flex-direction: row;
+  }
+
+  .md\:text-sm{
+    font-size: 0.875rem;
+  }
+
+  .md\:text-3xl{
+    font-size: 1.875rem;
+  }
+
+  .md\:mt-0{
+    margin-top: 0;
+  }
+
+  .md\:mb-0{
+    margin-bottom: 0;
+  }
+
+  .md\:pr-6{
+    padding-right: 1.5rem;
+  }
+
+  .md\:text-left{
+    text-align: left;
+  }
+
+  .md\:w-4\/5{
+    width: 80%;
+  }
 }
 
 @media (min-width: 1024px){

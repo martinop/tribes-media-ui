@@ -1,6 +1,6 @@
 {
   "name": "tribes-media-ui",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "private": false,
   "files": [
     "dist",
@@ -14,7 +14,7 @@
     "build:tailwind": "tailwind build src/css/tailwind.css -o src/css/tribes-media-ui.css",
     "clean": "rimraf dist",
     "compile": "npm run clean && cross-env NODE_ENV=production npm run build:tailwind && cross-env NODE_ENV=production babel src/components src/theme/utils.js src/css/tribes-media-ui.css --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
-    "storybook": "start-storybook -p 6006 -s public --no-dll",
+    "storybook": "npm run build:tailwind && start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "build-storybook -s public --no-dll"
   },
   "eslintConfig": {

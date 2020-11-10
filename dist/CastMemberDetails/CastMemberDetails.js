@@ -13,6 +13,18 @@ require("./styles.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function Image(props) {
+  var src = props.src,
+      name = props.name;
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("img", {
+    src: src,
+    alt: name,
+    className: "cmd-image"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "cmd-image-overlay"
+  }));
+}
+
 function CastMemberDetails(props) {
   var castLabel = props.castLabel,
       filmographyLabel = props.filmographyLabel,
@@ -24,23 +36,25 @@ function CastMemberDetails(props) {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "cast-member-details bg-black text-white font-poppins"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex"
+    className: "flex flex-col md:flex-row"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "w-4/5 pr-6"
+    className: "w-full md:w-4/5 md:pr-6"
   }, /*#__PURE__*/_react.default.createElement("h5", {
-    className: "mb-3 uppercase"
-  }, castLabel), /*#__PURE__*/_react.default.createElement("h2", {
-    className: "text-3xl font-bold mb-3 uppercase"
-  }, name), /*#__PURE__*/_react.default.createElement("p", {
-    className: "text-sm leading-7"
-  }, biography)), /*#__PURE__*/_react.default.createElement("div", {
-    className: "relative w-1/5"
-  }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "mb-3 uppercase text-center md:text-left"
+  }, castLabel), /*#__PURE__*/_react.default.createElement("div", {
+    className: "block relative w-3/5 mx-auto md:hidden"
+  }, /*#__PURE__*/_react.default.createElement(Image, {
     src: imgSrc,
-    alt: name,
-    className: "cmd-image"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "cmd-image-overlay"
+    name: name
+  })), /*#__PURE__*/_react.default.createElement("h2", {
+    className: "text-base md:text-3xl font-bold mb-3 uppercase text-center md:text-left"
+  }, name), /*#__PURE__*/_react.default.createElement("p", {
+    className: "text-xs md:text-sm leading-7 font-normal mb-6 mt-6 md:mt-0 md:mb-0"
+  }, biography)), /*#__PURE__*/_react.default.createElement("div", {
+    className: "hidden md:block relative w-1/5"
+  }, /*#__PURE__*/_react.default.createElement(Image, {
+    src: imgSrc,
+    name: name
   }))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", {
     className: "font-bold text-lg mb-1 uppercase"
   }, filmographyLabel), !(movies === null || movies === void 0 ? void 0 : movies.length) && /*#__PURE__*/_react.default.createElement("p", {
