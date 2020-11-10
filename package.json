@@ -13,7 +13,7 @@
     "eject": "react-scripts eject",
     "build:tailwind": "tailwind build src/css/tailwind.css -o src/css/tribes-media-ui.css",
     "clean": "rimraf dist",
-    "compile": "npm run clean && cross-env NODE_ENV=production npm run build:tailwind && cross-env NODE_ENV=production babel src/components src/theme --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
+    "compile": "npm run clean && cross-env NODE_ENV=production npm run build:tailwind && cross-env NODE_ENV=production babel src/components src/theme src/css/tribes-media-ui.css --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "build-storybook -s public --no-dll"
   },
@@ -34,6 +34,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinop/tribes-media-ui.git"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -58,5 +62,13 @@
     "react-is": "^17.0.1",
     "react-scripts": "4.0.0",
     "tailwindcss": "^1.9.6"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "bugs": {
+    "url": "https://github.com/martinop/tribes-media-ui/issues"
+  },
+  "homepage": "https://github.com/martinop/tribes-media-ui#readme",
+  "main": "dist/index.js",
+  "author": "Martin Ocando",
+  "license": "ISC"
 }
