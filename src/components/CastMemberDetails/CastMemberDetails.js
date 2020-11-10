@@ -19,7 +19,7 @@ function CastMemberDetails(props) {
 			<div>
 				<h4 className="font-bold text-lg mb-1">{moviesLabel}</h4>
 				{!movies?.length && (
-					<span>{emptyLabel}</span>
+					<p className="mt-4">{emptyLabel}</p>
 				)}
 				{movies?.length > 0 && (
 					<ul>

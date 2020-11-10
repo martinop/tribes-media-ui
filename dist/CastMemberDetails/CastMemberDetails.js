@@ -43,7 +43,9 @@ function CastMemberDetails(props) {
     className: "cmd-image-overlay"
   }))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", {
     className: "font-bold text-lg mb-1"
-  }, moviesLabel), !(movies === null || movies === void 0 ? void 0 : movies.length) && /*#__PURE__*/_react.default.createElement("span", null, emptyLabel), (movies === null || movies === void 0 ? void 0 : movies.length) > 0 && /*#__PURE__*/_react.default.createElement("ul", null, movies.map(function (movie) {
+  }, moviesLabel), !(movies === null || movies === void 0 ? void 0 : movies.length) && /*#__PURE__*/_react.default.createElement("p", {
+    className: "mt-4"
+  }, emptyLabel), (movies === null || movies === void 0 ? void 0 : movies.length) > 0 && /*#__PURE__*/_react.default.createElement("ul", null, movies.map(function (movie) {
     return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("div", {
       className: "flex justify-between py-3 text-xs"
     }, /*#__PURE__*/_react.default.createElement("span", null, movie.name), /*#__PURE__*/_react.default.createElement("span", null, movie.year)), /*#__PURE__*/_react.default.createElement("div", {
