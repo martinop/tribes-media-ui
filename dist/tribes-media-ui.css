@@ -753,6 +753,10 @@ video {
     margin-bottom: 0;
   }
 
+  .md\:p-0{
+    padding: 0;
+  }
+
   .md\:pr-6{
     padding-right: 1.5rem;
   }

@@ -34,7 +34,7 @@ function CastMemberDetails(props) {
       imgSrc = props.imgSrc,
       movies = props.movies;
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "cast-member-details bg-black text-white font-poppins"
+    className: "cast-member-details bg-black text-white font-poppins p-8 md:p-0"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "flex flex-col md:flex-row"
   }, /*#__PURE__*/_react.default.createElement("div", {
