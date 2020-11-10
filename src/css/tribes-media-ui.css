@@ -641,6 +641,10 @@ video {
   color: rgba(255, 255, 255, var(--text-opacity));
 }
 
+.uppercase{
+  text-transform: uppercase;
+}
+
 .w-1\/5{
   width: 20%;
 }
