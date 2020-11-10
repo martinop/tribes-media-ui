@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 function CastMemberDetails(props) {
-	const { castLabel, moviesLabel, biography, emptyLabel, name, imgSrc, movies } = props;
+	const { castLabel, filmographyLabel, biography, emptyLabel, name, imgSrc, movies } = props;
 	return (
 		<div className="cast-member-details bg-black text-white font-poppins">
 			<div className="flex">
@@ -17,7 +17,7 @@ function CastMemberDetails(props) {
 				</div>
 			</div>
 			<div>
-				<h4 className="font-bold text-lg mb-1">{moviesLabel}</h4>
+				<h4 className="font-bold text-lg mb-1 uppercase">{filmographyLabel}</h4>
 				{!movies?.length && (
 					<p className="mt-4">{emptyLabel}</p>
 				)}
@@ -45,7 +45,7 @@ CastMemberDetails.propTypes = {
 	castLabel: PropTypes.string,
 	name: PropTypes.string,
 	imgSrc: PropTypes.string,
-	moviesLabel: PropTypes.string,
+	filmographyLabel: PropTypes.string,
 	emptyLabel: PropTypes.string,
 	biography: PropTypes.string,
 	movies: PropTypes.arrayOf(
