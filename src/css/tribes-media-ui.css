@@ -594,6 +594,10 @@ video {
   flex-direction: column;
 }
 
+.self-start{
+  align-self: flex-start;
+}
+
 .justify-between{
   justify-content: space-between;
 }
@@ -647,8 +651,8 @@ video {
   margin-top: 1.5rem;
 }
 
-.mb-6{
-  margin-bottom: 1.5rem;
+.mb-12{
+  margin-bottom: 3rem;
 }
 
 .p-3{
@@ -751,10 +755,6 @@ video {
 
   .md\:mt-0{
     margin-top: 0;
-  }
-
-  .md\:mb-0{
-    margin-bottom: 0;
   }
 
   .md\:p-0{

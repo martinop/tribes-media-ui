@@ -49,9 +49,9 @@ function CastMemberDetails(props) {
   })), /*#__PURE__*/_react.default.createElement("h2", {
     className: "text-base md:text-3xl font-bold mb-3 uppercase text-center md:text-left"
   }, name), /*#__PURE__*/_react.default.createElement("p", {
-    className: "text-xs md:text-sm leading-7 font-normal mb-6 mt-6 md:mt-0 md:mb-0"
+    className: "text-xs md:text-sm leading-7 font-normal mb-12 mt-6 md:mt-0"
   }, biography)), /*#__PURE__*/_react.default.createElement("div", {
-    className: "hidden md:block relative w-1/5"
+    className: "hidden md:block relative w-1/5 self-start"
   }, /*#__PURE__*/_react.default.createElement(Image, {
     src: imgSrc,
     name: name

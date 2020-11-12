@@ -1,6 +1,12 @@
+.cast-member-details {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
 .cast-member-details .cmd-image {
 	filter: grayscale(100%);
 }
+
 .cast-member-details .cmd-image-overlay {
 	position: absolute;
 	width: 100%;

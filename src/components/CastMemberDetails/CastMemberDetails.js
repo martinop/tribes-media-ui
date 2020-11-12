@@ -22,9 +22,9 @@ function CastMemberDetails(props) {
 						<Image src={imgSrc} name={name} />
 					</div>
 					<h2 className="text-base md:text-3xl font-bold mb-3 uppercase text-center md:text-left">{name}</h2>
-					<p className="text-xs md:text-sm leading-7 font-normal mb-6 mt-6 md:mt-0 md:mb-0">{biography}</p>
+					<p className="text-xs md:text-sm leading-7 font-normal mb-12 mt-6 md:mt-0">{biography}</p>
 				</div>
-				<div className='hidden md:block relative w-1/5'>
+				<div className='hidden md:block relative w-1/5 self-start'>
 					<Image src={imgSrc} name={name} />
 				</div>
 			</div>
