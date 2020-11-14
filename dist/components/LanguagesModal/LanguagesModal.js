@@ -32,7 +32,7 @@ function LanguagesModal(props) {
       key: "language-modal-item-".concat(language.value)
     }, /*#__PURE__*/_react.default.createElement("span", {
       onClick: function onClick() {
-        return [onChange(language.value), onClose()];
+        return [onClose(), onChange(language.value)];
       },
       className: "cursor-pointer"
     }, language.label));

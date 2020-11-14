@@ -16,7 +16,7 @@ function LanguagesModal(props) {
 				{languages && languages.map(language => (
 					<li key={`language-modal-item-${language.value}`}>
 						<span
-							onClick={() => [onChange(language.value), onClose()]}
+							onClick={() => [onClose(), onChange(language.value)]}
 							className="cursor-pointer"
 						>
 							{language.label}
