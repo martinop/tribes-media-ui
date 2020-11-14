@@ -1,23 +1,11 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "CastMemberDetails", {
-  enumerable: true,
-  get: function get() {
-    return _CastMemberDetails.default;
-  }
-});
-Object.defineProperty(exports, "LanguagesModal", {
-  enumerable: true,
-  get: function get() {
-    return _LanguagesModal.default;
-  }
-});
+var _react = _interopRequireDefault(require("react"));
 
-var _CastMemberDetails = _interopRequireDefault(require("./CastMemberDetails"));
+var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _LanguagesModal = _interopRequireDefault(require("./LanguagesModal"));
+require("./css/tailwind.output.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, null, /*#__PURE__*/_react.default.createElement("div", null)), document.getElementById('root'));
