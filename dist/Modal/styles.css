@@ -1,0 +1,24 @@
+.bm-blur {
+	z-index: 12;
+	backdrop-filter: blur(3px);
+	background-color: rgba(45, 58, 93, 0.5);
+}
+
+.bm-body {
+	max-height: 90vh;
+	max-width: 90%;
+}
+
+.bm-small {
+	width: 400px;
+}
+
+.bm-medium {
+	width: 600px;
+}
+
+.bm-close {
+	position: absolute;
+	right: 15px;
+	top: 15px;
+}

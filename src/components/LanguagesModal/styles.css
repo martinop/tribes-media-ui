@@ -1,0 +1,29 @@
+.languages-modal {
+	background: linear-gradient(132.08deg, #000000 -28.34%, var(--color-primary) 100%);
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.languages-modal svg path {
+	fill: white;
+}
+
+.languages-modal-list li {
+	position: relative;
+	font-weight: 500;
+	line-height: 24px;
+	color: white;
+	text-align: center;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	padding: 20px 0;
+}
+.languages-modal-list li::after {
+	content: "";
+	background: linear-gradient(270deg, #000000 0%, var(--color-primary) 100%);
+	display: block;
+	height: 1px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
