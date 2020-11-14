@@ -10,7 +10,6 @@ function LanguagesModal(props) {
 			open={open}
 			id="languages-modal"
 			onClose={onClose}
-			ariaHideApp={false}
 			className="languages-modal"
 		>
 			<ul className="languages-modal-list">

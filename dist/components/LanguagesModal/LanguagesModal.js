@@ -24,7 +24,6 @@ function LanguagesModal(props) {
     open: open,
     id: "languages-modal",
     onClose: onClose,
-    ariaHideApp: false,
     className: "languages-modal"
   }, /*#__PURE__*/_react.default.createElement("ul", {
     className: "languages-modal-list"

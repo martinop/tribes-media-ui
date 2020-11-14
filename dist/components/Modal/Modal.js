@@ -73,6 +73,7 @@ function Modal(props) {
   return /*#__PURE__*/React.createElement(_reactModal.default, {
     isOpen: show,
     testId: id,
+    ariaHideApp: false,
     onRequestClose: onClose,
     shouldCloseOnOverlayClick: true,
     overlayClassName: "bm-blur inset-0 flex fixed",

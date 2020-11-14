@@ -31,6 +31,7 @@ function Modal(props) {
 		<RModal
 			isOpen={show}
 			testId={id}
+			ariaHideApp={false}
 			onRequestClose={onClose}
 			shouldCloseOnOverlayClick
 			overlayClassName='bm-blur inset-0 flex fixed'
