@@ -61,7 +61,7 @@ function OnboardingModal(props) {
 								<p className="mt-12 text-sm text-white font-bold uppercase">{text}</p>
 							</div>
 							{index === images.length - 1 && (
-								<Button label={ctaText} className="w-1/2 uppercase" primary />
+								<Button label={ctaText} className="w-1/2 uppercase" onClick={onClose} primary />
 							)}
 						</div>
 						<img src={image} alt={`onboarding ${index}`} />

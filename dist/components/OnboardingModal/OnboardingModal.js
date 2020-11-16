@@ -92,6 +92,7 @@ function OnboardingModal(props) {
     }, text)), index === images.length - 1 && /*#__PURE__*/_react.default.createElement(_Button.Button, {
       label: ctaText,
       className: "w-1/2 uppercase",
+      onClick: onClose,
       primary: true
     })), /*#__PURE__*/_react.default.createElement("img", {
       src: image,
