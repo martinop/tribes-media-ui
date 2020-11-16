@@ -15,7 +15,7 @@ Object.defineProperty(exports, "LanguagesModal", {
     return _LanguagesModal.default;
   }
 });
-Object.defineProperty(exports, "Onboarding", {
+Object.defineProperty(exports, "OnboardingModal", {
   enumerable: true,
   get: function get() {
     return _OnboardingModal.default;
