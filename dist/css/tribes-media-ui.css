@@ -624,6 +624,10 @@ video {
   height: auto;
 }
 
+.h-full{
+  height: 100%;
+}
+
 .text-xs{
   font-size: 0.75rem;
 }
@@ -675,6 +679,10 @@ video {
 
 .mb-12{
   margin-bottom: 3rem;
+}
+
+.object-cover{
+  object-fit: cover;
 }
 
 .overflow-y-auto{
@@ -731,10 +739,6 @@ video {
   text-transform: uppercase;
 }
 
-.w-1\/2{
-  width: 50%;
-}
-
 .w-1\/5{
   width: 20%;
 }
@@ -787,6 +791,9 @@ video {
 }
 
 @media (min-width: 600px){
+  .sm\:w-1\/2{
+    width: 50%;
+  }
 }
 
 @media (min-width: 768px){

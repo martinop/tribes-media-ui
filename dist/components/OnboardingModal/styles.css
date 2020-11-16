@@ -3,6 +3,10 @@
 	padding: 0;
 }
 
+.onboarding-modal .slick-slider, .onboarding-modal .slick-list {
+	max-height: 90vh;
+}
+
 .onboarding-modal svg {
 	fill: white;
 }

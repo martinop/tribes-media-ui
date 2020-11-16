@@ -92,12 +92,13 @@ function OnboardingModal(props) {
       className: "mt-12 text-sm text-white font-bold uppercase"
     }, text)), index === images.length - 1 && /*#__PURE__*/_react.default.createElement(_Button.Button, {
       label: ctaText,
-      className: "w-1/2 uppercase",
+      className: "w-3/5 sm:w-1/2 uppercase",
       onClick: onClose,
       primary: true
     })), /*#__PURE__*/_react.default.createElement("img", {
       src: image,
-      alt: "onboarding ".concat(index)
+      alt: "onboarding ".concat(index),
+      className: "object-cover h-full"
     }), /*#__PURE__*/_react.default.createElement("div", {
       className: "overlay"
     }));
