@@ -11,7 +11,6 @@ export const Button = ({ primary, backgroundColor, size, label, className, ...pr
     <button
       type="button"
       className={['font-poppins bg-primary button', `button--${size}`, className, mode].join(' ')}
-      style={backgroundColor && { backgroundColor }}
       {...props}
     >
       {label}
@@ -43,7 +42,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  backgroundColor: null,
   primary: false,
   size: 'medium',
   onClick: undefined,

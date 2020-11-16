@@ -33,10 +33,7 @@ var Button = function Button(_ref) {
   var mode = primary ? 'button--primary' : 'button--secondary';
   return /*#__PURE__*/_react.default.createElement("button", _extends({
     type: "button",
-    className: ['font-poppins bg-primary button', "button--".concat(size), className, mode].join(' '),
-    style: backgroundColor && {
-      backgroundColor: backgroundColor
-    }
+    className: ['font-poppins bg-primary button', "button--".concat(size), className, mode].join(' ')
   }, props), label);
 };
 
@@ -68,7 +65,6 @@ Button.propTypes = {
   onClick: _propTypes.default.func
 };
 Button.defaultProps = {
-  backgroundColor: null,
   primary: false,
   size: 'medium',
   onClick: undefined
