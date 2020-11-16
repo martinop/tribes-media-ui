@@ -33,7 +33,7 @@ var Button = function Button(_ref) {
   var mode = primary ? 'button--primary' : 'button--secondary';
   return /*#__PURE__*/_react.default.createElement("button", _extends({
     type: "button",
-    className: ['font-poppins bg-primary button', "button--".concat(size), className, mode].join(' ')
+    className: ['font-poppins button', "button--".concat(size), className, mode].join(' ')
   }, props), label);
 };
 
