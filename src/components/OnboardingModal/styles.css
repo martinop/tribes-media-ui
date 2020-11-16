@@ -1,0 +1,94 @@
+.onboarding-modal.bm-body {
+	background-color: black;
+	padding: 0;
+}
+
+.onboarding-modal svg {
+	fill: white;
+}
+
+
+.onboarding-modal .slick-next {
+	right: 25px;
+}
+
+
+.onboarding-modal .slick-prev {
+	left: 25px;
+}
+
+.onboarding-modal .slick-next, .onboarding-modal .slick-prev {
+	z-index: 10;
+}
+
+
+.onboarding-modal .slick-next:before, .onboarding-modal .slick-prev:before {
+	content: none;
+}
+
+.onboarding-modal .overlay {
+	background: radial-gradient(50% 50% at 50% 50%, #2F2C38 0%, #2F2C38 100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	mix-blend-mode: multiply;
+	opacity: 0.6;
+}
+
+.onboarding-modal .details {
+	position: absolute;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 65%;
+	top: 15%;
+	z-index: 10;
+}
+
+.onboarding-modal .details p {
+	line-height: 24px;
+	text-align: center;
+	letter-spacing: 0.2em;
+}
+
+.onboarding-modal .slick-dots {
+	bottom: 30px;
+}
+
+.onboarding-modal .slide {
+	position: relative;
+	display: block !important;
+}
+
+.onboarding-modal .slick-dots li button {
+	border: solid 1px white;
+	opacity: 0.5;
+}
+
+.onboarding-modal .slick-dots li.slick-active button:before, .onboarding-modal .slick-dots li button:before {
+	display: none;
+}
+
+
+.onboarding-modal .slick-dots li {
+	margin: 0 3px;
+	transition: all 300ms ease-in-out;
+}
+
+.onboarding-modal .slick-dots li:hover {
+	background-color: white;
+}
+
+.onboarding-modal .slick-dots li, .onboarding-modal .slick-dots li button {
+	border-radius: 100%;
+	width: 13px;
+	height: 13px;
+}
+
+.onboarding-modal .slick-dots li.slick-active {
+	background-color: white;
+}

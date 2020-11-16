@@ -27,12 +27,13 @@ var Button = function Button(_ref) {
       backgroundColor = _ref.backgroundColor,
       size = _ref.size,
       label = _ref.label,
-      props = _objectWithoutProperties(_ref, ["primary", "backgroundColor", "size", "label"]);
+      className = _ref.className,
+      props = _objectWithoutProperties(_ref, ["primary", "backgroundColor", "size", "label", "className"]);
 
-  var mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  var mode = primary ? 'button--primary' : 'button--secondary';
   return /*#__PURE__*/_react.default.createElement("button", _extends({
     type: "button",
-    className: ['bg-primary storybook-button', "storybook-button--".concat(size), mode].join(' '),
+    className: ['font-poppins bg-primary button', "button--".concat(size), className, mode].join(' '),
     style: backgroundColor && {
       backgroundColor: backgroundColor
     }
