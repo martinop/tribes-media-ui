@@ -22,3 +22,7 @@
 	right: 15px;
 	top: 15px;
 }
+
+.ReactModal__Body--open {
+	overflow-y: hidden;
+}

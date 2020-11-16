@@ -47,6 +47,7 @@ function Modal(props) {
       children = props.children,
       size = props.size,
       onClose = props.onClose,
+      allowClose = props.allowClose,
       className = props.className;
   var prevOpen = (0, _usePrevious.default)(open);
 
@@ -75,7 +76,8 @@ function Modal(props) {
     testId: id,
     ariaHideApp: false,
     onRequestClose: onClose,
-    shouldCloseOnOverlayClick: true,
+    shouldCloseOnEsc: allowClose,
+    shouldCloseOnOverlayClick: allowClose,
     overlayClassName: "bm-blur inset-0 flex fixed",
     className: "flex flex-col w-full"
   }, /*#__PURE__*/React.createElement(_framerMotion.motion.div, {
@@ -89,7 +91,7 @@ function Modal(props) {
     },
     initial: "close",
     animate: open ? 'open' : 'close'
-  }, /*#__PURE__*/React.createElement("svg", {
+  }, allowClose && /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "20",
     height: "20",
@@ -103,11 +105,13 @@ function Modal(props) {
 
 ;
 Modal.defaultProps = {
-  size: 'medium'
+  size: 'medium',
+  allowClose: true
 };
 Modal.propTypes = {
   open: _propTypes.default.bool,
   onClose: _propTypes.default.func,
+  allowClose: _propTypes.default.bool,
   children: _propTypes.default.element,
   size: _propTypes.default.oneOf(["small", "medium"]),
   id: _propTypes.default.string

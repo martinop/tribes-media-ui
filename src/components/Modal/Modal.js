@@ -8,7 +8,7 @@ import { bodyAnimation } from './utils';
 import './styles.css';
 
 function Modal(props) {
-	const { open, id, children, size, onClose, className } = props;
+	const { open, id, children, size, onClose, allowClose, className } = props;
 	const prevOpen = usePrevious(open);
 	const [show, setShow] = React.useState(open);
 	React.useEffect(() => {
@@ -33,7 +33,8 @@ function Modal(props) {
 			testId={id}
 			ariaHideApp={false}
 			onRequestClose={onClose}
-			shouldCloseOnOverlayClick
+			shouldCloseOnEsc={allowClose}
+			shouldCloseOnOverlayClick={allowClose}
 			overlayClassName='bm-blur inset-0 flex fixed'
 			className='flex flex-col w-full'
 		>
@@ -46,16 +47,19 @@ function Modal(props) {
 				variants={bodyAnimation}
 				transition={{ duration: 0.3 }}
 				initial="close"
-				animate={open ? 'open' : 'close'}>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="20"
-					height="20"
-					viewBox="0 0 24 24"
-					className="bm-close cursor-pointer z-10"
-					onClick={onClose}>
-					<path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
-				</svg>
+				animate={open ? 'open' : 'close'}
+			>
+				{allowClose && (
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						className="bm-close cursor-pointer z-10"
+						onClick={onClose}>
+						<path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
+					</svg>
+				)}
 				{children}
 			</motion.div>
 		</RModal>
@@ -63,12 +67,14 @@ function Modal(props) {
 };
 
 Modal.defaultProps = {
-	size: 'medium'
+	size: 'medium',
+	allowClose: true,
 };
 
 Modal.propTypes = {
 	open: PropTypes.bool,
 	onClose: PropTypes.func,
+	allowClose: PropTypes.bool,
 	children: PropTypes.element,
 	size: PropTypes.oneOf(["small", "medium"]), 
 	id: PropTypes.string,
