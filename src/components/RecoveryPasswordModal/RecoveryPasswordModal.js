@@ -43,7 +43,7 @@ function RecoveryPasswordModal(props) {
 			</div>
 			<h3 className="text-sm uppercase text-center text-white font-bold mt-6 mb-20">{title}</h3>
 			{!emailSent && (
-				<form onSubmit={formik.handleSubmit} className="w-3/5 flex flex-col">
+				<form onSubmit={formik.handleSubmit} className="w-full sm:w-3/5 flex flex-col">
 					<Input
 						placeholder={language === "en" ? "Email Address" : "Correo Electronico"}
 						containerClassname="mb-10"

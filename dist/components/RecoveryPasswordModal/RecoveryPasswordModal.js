@@ -58,7 +58,7 @@ function RecoveryPasswordModal(props) {
     className: "text-sm uppercase text-center text-white font-bold mt-6 mb-20"
   }, title), !emailSent && /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: formik.handleSubmit,
-    className: "w-3/5 flex flex-col"
+    className: "w-full sm:w-3/5 flex flex-col"
   }, /*#__PURE__*/_react.default.createElement(_Input.default, {
     placeholder: language === "en" ? "Email Address" : "Correo Electronico",
     containerClassname: "mb-10",
