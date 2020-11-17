@@ -8,13 +8,23 @@ import Input from '../Input';
 import { Button } from '../Button/Button';
 import { validate } from './utils';
 
-function LoginModal(props) {
-	const { open, onClose, loginLabel, logo, title, disabled, onClickForgot, onSubmit, language, forgotLabel } = props;
+function RecoveryPasswordModal(props) {
+	const {
+		open, 
+		onClose,
+		recoveryLabel,
+		logo,
+		onReturnLogin,
+		returnLoginLabel,
+		title,
+		sentMessage,
+		disabled,
+		onSubmit,
+		language,
+		emailSent
+	} = props;
 	const formik = useFormik({
-		initialValues: {
-			email: '',
-			password: ''
-		},
+		initialValues: { email: ''	},
 		validate: validate(language),
 		onSubmit: values => {
 			formik.resetForm();
@@ -24,57 +34,56 @@ function LoginModal(props) {
 	return (
 		<Modal
 			open={open}
-			id="login-modal"
+			id="recovery-password-modal"
 			onClose={onClose}
-			className="login-modal pt-20"
+			className="recovery-password-modal pt-20 pb-16"
 		>
 			<div>
 				{logo}
 			</div>
 			<h3 className="text-sm uppercase text-center text-white font-bold mt-6 mb-20">{title}</h3>
-			<form onSubmit={formik.handleSubmit} className="w-3/5 flex flex-col">
-				<div className="flex flex-col w-full"> 
+			{!emailSent && (
+				<form onSubmit={formik.handleSubmit} className="w-3/5 flex flex-col">
 					<Input
 						placeholder={language === "en" ? "Email Address" : "Correo Electronico"}
-						containerClassname="mb-3"
+						containerClassname="mb-10"
 						className="w-full"
 						id="email"
 						name="email"
-         		type="email"
+						type="email"
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
 						value={formik.values.email}
 						error={formik.touched.email && formik.errors.email}
 					/>
-					<Input
-						placeholder={language === "en" ? "Password" : "Contraseña"}
-						containerClassname="mb-12" 
-						className="w-full"
-						id="password"
-						name="password"
-         		type="password"
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-						value={formik.values.password}
-						error={formik.touched.password && formik.errors.password}
-					/>
-					<Button label={loginLabel} className="uppercase w-full" type="submit" disabled={!isEmpty(formik.errors) || disabled} />
+					<Button label={recoveryLabel} className="uppercase w-full" type="submit" disabled={!isEmpty(formik.errors) || disabled} />
+				</form>
+			)}
+			{emailSent && (
+				<div className="w-3/5 flex flex-col">
+					<p className={["text-white text-center", onReturnLogin && 'mb-10'].join(" ")}>{sentMessage}</p>
+					{onReturnLogin && (
+						<Button label={returnLoginLabel} className="uppercase w-full" onClick={onReturnLogin} />
+					)}
 				</div>
-				<button onClick={onClickForgot} className="mt-4 text-white text-center underline text-base">{forgotLabel}</button>
-			</form>
+			)}
 		</Modal>
 	)
 }
 
-LoginModal.propTypes = {
+RecoveryPasswordModal.propTypes = {
 	open: PropTypes.bool,
-	loginLabel: PropTypes.string,
+	recoveryLabel: PropTypes.string,
 	logo: PropTypes.element,
 	onClickForgot: PropTypes.func,
 	disabled: PropTypes.bool,
+	onReturnLogin: PropTypes.func,
 	onSubmit: PropTypes.func,
 	onClose: PropTypes.func,
+	sentMessage: PropTypes.string,
+	emailSent: PropTypes.bool,
+	returnLoginLabel: PropTypes.string,
 	language: PropTypes.oneOf(["en", "es"])
 }
 
-export default LoginModal;
+export default RecoveryPasswordModal;

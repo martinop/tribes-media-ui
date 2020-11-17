@@ -75,7 +75,7 @@ Modal.propTypes = {
 	open: PropTypes.bool,
 	onClose: PropTypes.func,
 	allowClose: PropTypes.bool,
-	children: PropTypes.element,
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	size: PropTypes.oneOf(["small", "medium"]), 
 	id: PropTypes.string,
 }

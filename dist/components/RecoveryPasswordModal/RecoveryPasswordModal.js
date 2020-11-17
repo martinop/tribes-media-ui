@@ -25,21 +25,22 @@ var _utils = require("./utils");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function LoginModal(props) {
+function RecoveryPasswordModal(props) {
   var open = props.open,
       onClose = props.onClose,
-      loginLabel = props.loginLabel,
+      recoveryLabel = props.recoveryLabel,
       logo = props.logo,
+      onReturnLogin = props.onReturnLogin,
+      returnLoginLabel = props.returnLoginLabel,
       title = props.title,
+      sentMessage = props.sentMessage,
       disabled = props.disabled,
-      onClickForgot = props.onClickForgot,
       _onSubmit = props.onSubmit,
       language = props.language,
-      forgotLabel = props.forgotLabel;
+      emailSent = props.emailSent;
   var formik = (0, _formik.useFormik)({
     initialValues: {
-      email: '',
-      password: ''
+      email: ''
     },
     validate: (0, _utils.validate)(language),
     onSubmit: function onSubmit(values) {
@@ -50,19 +51,17 @@ function LoginModal(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_Modal.default, {
     open: open,
-    id: "login-modal",
+    id: "recovery-password-modal",
     onClose: onClose,
-    className: "login-modal pt-20"
+    className: "recovery-password-modal pt-20 pb-16"
   }, /*#__PURE__*/_react.default.createElement("div", null, logo), /*#__PURE__*/_react.default.createElement("h3", {
     className: "text-sm uppercase text-center text-white font-bold mt-6 mb-20"
-  }, title), /*#__PURE__*/_react.default.createElement("form", {
+  }, title), !emailSent && /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: formik.handleSubmit,
     className: "w-3/5 flex flex-col"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex flex-col w-full"
   }, /*#__PURE__*/_react.default.createElement(_Input.default, {
     placeholder: language === "en" ? "Email Address" : "Correo Electronico",
-    containerClassname: "mb-3",
+    containerClassname: "mb-10",
     className: "w-full",
     id: "email",
     name: "email",
@@ -71,37 +70,35 @@ function LoginModal(props) {
     onBlur: formik.handleBlur,
     value: formik.values.email,
     error: formik.touched.email && formik.errors.email
-  }), /*#__PURE__*/_react.default.createElement(_Input.default, {
-    placeholder: language === "en" ? "Password" : "Contraseña",
-    containerClassname: "mb-12",
-    className: "w-full",
-    id: "password",
-    name: "password",
-    type: "password",
-    onChange: formik.handleChange,
-    onBlur: formik.handleBlur,
-    value: formik.values.password,
-    error: formik.touched.password && formik.errors.password
   }), /*#__PURE__*/_react.default.createElement(_Button.Button, {
-    label: loginLabel,
+    label: recoveryLabel,
     className: "uppercase w-full",
     type: "submit",
     disabled: !(0, _isEmpty.default)(formik.errors) || disabled
-  })), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: onClickForgot,
-    className: "mt-4 text-white text-center underline text-base"
-  }, forgotLabel)));
+  })), emailSent && /*#__PURE__*/_react.default.createElement("div", {
+    className: "w-3/5 flex flex-col"
+  }, /*#__PURE__*/_react.default.createElement("p", {
+    className: ["text-white text-center", onReturnLogin && 'mb-10'].join(" ")
+  }, sentMessage), onReturnLogin && /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    label: returnLoginLabel,
+    className: "uppercase w-full",
+    onClick: onReturnLogin
+  })));
 }
 
-LoginModal.propTypes = {
+RecoveryPasswordModal.propTypes = {
   open: _propTypes.default.bool,
-  loginLabel: _propTypes.default.string,
+  recoveryLabel: _propTypes.default.string,
   logo: _propTypes.default.element,
   onClickForgot: _propTypes.default.func,
   disabled: _propTypes.default.bool,
+  onReturnLogin: _propTypes.default.func,
   onSubmit: _propTypes.default.func,
   onClose: _propTypes.default.func,
+  sentMessage: _propTypes.default.string,
+  emailSent: _propTypes.default.bool,
+  returnLoginLabel: _propTypes.default.string,
   language: _propTypes.default.oneOf(["en", "es"])
 };
-var _default = LoginModal;
+var _default = RecoveryPasswordModal;
 exports.default = _default;

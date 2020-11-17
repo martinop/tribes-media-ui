@@ -10,7 +10,7 @@ export const Button = ({ primary, backgroundColor, size, label, disabled, classN
   return (
     <button
       type="button"
-      className={['font-poppins button', `button--${size}`, className, disabled && 'disabled', mode].join(' ')}
+      className={['font-poppins button', `button--${size}`, className && className, disabled ? 'disabled' : '', mode].join(' ')}
       {...props}
     >
       {label}

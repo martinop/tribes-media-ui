@@ -6,14 +6,21 @@
   justify-content: center;
   font-weight: 500;
   letter-spacing: 0.2em;
-  color: #FFFFFF;
+  border: solid 3px transparent;
   background-color: var(--color-primary);
+  transition: all 300ms ease-in-out;
 }
 .button.disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 .button--primary {
+  color: white;
+}
+
+.button--secondary:not(.disabled):hover {
+  background-color: transparent;
+  border-color: white;
   color: white;
 }
 .button--secondary {
