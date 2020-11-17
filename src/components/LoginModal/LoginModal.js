@@ -60,7 +60,7 @@ function LoginModal(props) {
 					/>
 					<Button label={loginLabel} className="uppercase w-full" type="submit" disabled={!isEmpty(formik.errors) || disabled} />
 				</div>
-				<button onClick={onClickForgot} className="mt-4 text-white text-center underline text-base">{forgotLabel}</button>
+				<button type="button" onClick={onClickForgot} className="mt-4 text-white text-center underline text-base">{forgotLabel}</button>
 			</form>
 		</Modal>
 	)
