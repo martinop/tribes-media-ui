@@ -40,7 +40,7 @@ function Modal(props) {
 		>
 			<motion.div
 				className={cx(
-					'bm-body relative flex flex-col h-auto m-auto bg-white shadow-md p-8 pt-12 overflow-y-auto',
+					'bm-body font-poppins relative flex flex-col h-auto m-auto bg-white shadow-md p-8 pt-12 overflow-y-auto',
 					className,
 					{ 'bm-small': size === 'small', 'bm-medium': size === 'medium' },
 				)}

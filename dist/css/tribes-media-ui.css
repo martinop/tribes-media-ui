@@ -196,7 +196,8 @@ select { /* 1 */
  */
 
 button,
-[type="button"] {
+[type="button"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 
@@ -205,7 +206,8 @@ button,
  */
 
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -215,7 +217,8 @@ button::-moz-focus-inner,
  */
 
 button:-moz-focusring,
-[type="button"]:-moz-focusring {
+[type="button"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -657,6 +660,10 @@ video {
   margin-right: auto;
 }
 
+.mt-1{
+  margin-top: 0.25rem;
+}
+
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -679,6 +686,10 @@ video {
 
 .mb-12{
   margin-bottom: 3rem;
+}
+
+.mb-20{
+  margin-bottom: 5rem;
 }
 
 .object-cover{
@@ -704,6 +715,10 @@ video {
 
 .pt-12{
   padding-top: 3rem;
+}
+
+.pt-20{
+  padding-top: 5rem;
 }
 
 .fixed{
@@ -735,8 +750,18 @@ video {
   color: rgba(255, 255, 255, var(--text-opacity));
 }
 
+.text-red-200{
+  --text-opacity: 1;
+  color: #fed7d7;
+  color: rgba(254, 215, 215, var(--text-opacity));
+}
+
 .uppercase{
   text-transform: uppercase;
+}
+
+.underline{
+  text-decoration: underline;
 }
 
 .w-1\/5{

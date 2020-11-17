@@ -81,7 +81,7 @@ function Modal(props) {
     overlayClassName: "bm-blur inset-0 flex fixed",
     className: "flex flex-col w-full"
   }, /*#__PURE__*/React.createElement(_framerMotion.motion.div, {
-    className: (0, _classnames.default)('bm-body relative flex flex-col h-auto m-auto bg-white shadow-md p-8 pt-12 overflow-y-auto', className, {
+    className: (0, _classnames.default)('bm-body font-poppins relative flex flex-col h-auto m-auto bg-white shadow-md p-8 pt-12 overflow-y-auto', className, {
       'bm-small': size === 'small',
       'bm-medium': size === 'medium'
     }),
