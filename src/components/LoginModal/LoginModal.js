@@ -9,7 +9,7 @@ import { Button } from '../Button/Button';
 import { validate } from './utils';
 
 function LoginModal(props) {
-	const { open, onClose, loginLabel, logo, title, onClickForgot, onSubmit, language, forgotLabel } = props;
+	const { open, onClose, loginLabel, logo, title, disabled, onClickForgot, onSubmit, language, forgotLabel } = props;
 	const formik = useFormik({
 		initialValues: {
 			email: '',
@@ -55,7 +55,7 @@ function LoginModal(props) {
 						value={formik.values.password}
 						error={formik.touched.password && formik.errors.password}
 					/>
-					<Button label={loginLabel} className="uppercase" type="submit" disabled={!isEmpty(formik.errors)} />
+					<Button label={loginLabel} className="uppercase" type="submit" disabled={!isEmpty(formik.errors) || disabled} />
 				</div>
 				<button onClick={onClickForgot} className="mt-4 text-white text-center underline text-base">{forgotLabel}</button>
 			</form>
@@ -68,6 +68,7 @@ LoginModal.propTypes = {
 	loginLabel: PropTypes.string,
 	logo: PropTypes.element,
 	onClickForgot: PropTypes.func,
+	disabled: PropTypes.bool,
 	onSubmit: PropTypes.func,
 	onClose: PropTypes.func,
 	language: PropTypes.oneOf(["en", "es"])

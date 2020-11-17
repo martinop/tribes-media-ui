@@ -5,12 +5,12 @@ import './button.css';
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, className, ...props }) => {
+export const Button = ({ primary, backgroundColor, size, label, disabled, className, ...props }) => {
   const mode = primary ? 'button--primary' : 'button--secondary';
   return (
     <button
       type="button"
-      className={['font-poppins button', `button--${size}`, className, mode].join(' ')}
+      className={['font-poppins button', `button--${size}`, className, disabled && 'disabled', mode].join(' ')}
       {...props}
     >
       {label}

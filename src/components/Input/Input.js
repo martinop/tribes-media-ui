@@ -3,11 +3,11 @@ import cx from 'classnames';
 import './styles.css';
 
 function Input(props) {
-	const { className, error, containerClassname } = props;
+	const { className, error, containerClassname, ...restProps } = props;
 	return (
 		<div className={containerClassname}>
 			<input
-				{...props}
+				{...restProps}
 				className={cx("tribes-input text-base text-center p-3", className)} 
 			/>
 			{error && <p className="mt-1 text-red-200 text-sm">{error}</p>}

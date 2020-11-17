@@ -9,6 +9,10 @@
   color: #FFFFFF;
   background-color: var(--color-primary);
 }
+.button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 .button--primary {
   color: white;
 }

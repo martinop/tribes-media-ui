@@ -27,13 +27,14 @@ var Button = function Button(_ref) {
       backgroundColor = _ref.backgroundColor,
       size = _ref.size,
       label = _ref.label,
+      disabled = _ref.disabled,
       className = _ref.className,
-      props = _objectWithoutProperties(_ref, ["primary", "backgroundColor", "size", "label", "className"]);
+      props = _objectWithoutProperties(_ref, ["primary", "backgroundColor", "size", "label", "disabled", "className"]);
 
   var mode = primary ? 'button--primary' : 'button--secondary';
   return /*#__PURE__*/_react.default.createElement("button", _extends({
     type: "button",
-    className: ['font-poppins button', "button--".concat(size), className, mode].join(' ')
+    className: ['font-poppins button', "button--".concat(size), className, disabled && 'disabled', mode].join(' ')
   }, props), label);
 };
 
