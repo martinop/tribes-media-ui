@@ -48,9 +48,8 @@ function OnboardingModal(props) {
   var open = props.open,
       onClose = props.onClose,
       ctaText = props.ctaText,
-      text = props.text,
       logo = props.logo,
-      images = props.images;
+      slides = props.slides;
   return /*#__PURE__*/_react.default.createElement(_Modal.default, {
     open: open,
     allowClose: false,
@@ -83,20 +82,20 @@ function OnboardingModal(props) {
       d: "M0 10L10 0L11.4 1.4L2.8 10L11.4 18.6L10 20L0 10Z",
       fill: "#E5E5E5"
     })))
-  }, images.map(function (image, index) {
+  }, slides.map(function (slide, index) {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "slide"
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "details"
     }, /*#__PURE__*/_react.default.createElement("div", null, logo, /*#__PURE__*/_react.default.createElement("p", {
       className: "mt-12 text-sm text-white font-bold uppercase"
-    }, text)), index === images.length - 1 && /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    }, slide.title)), index === slides.length - 1 && /*#__PURE__*/_react.default.createElement(_Button.Button, {
       label: ctaText,
       className: "w-4/6 sm:w-1/2 uppercase",
       onClick: onClose,
       primary: true
     })), /*#__PURE__*/_react.default.createElement("img", {
-      src: image,
+      src: slide.imageSrc,
       alt: "onboarding ".concat(index),
       className: "object-cover h-full"
     }), /*#__PURE__*/_react.default.createElement("div", {
@@ -107,10 +106,12 @@ function OnboardingModal(props) {
 
 OnboardingModal.propTypes = {
   open: _propTypes.default.bool,
-  images: _propTypes.default.arrayOf(_propTypes.default.string),
+  slides: _propTypes.default.arrayOf(_propTypes.default.shape({
+    imageSrc: _propTypes.default.string,
+    title: _propTypes.default.string
+  })),
   logo: _propTypes.default.element,
   onClose: _propTypes.default.func,
-  text: _propTypes.default.string,
   ctaText: _propTypes.default.string
 };
 var _default = OnboardingModal;

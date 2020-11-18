@@ -24,7 +24,7 @@ const DummyDiv = ({
 }
 
 function OnboardingModal(props) {
-	const { open, onClose, ctaText, text, logo, images } = props;
+	const { open, onClose, ctaText, logo, slides } = props;
 	return (
 		<Modal
 			open={open}
@@ -54,18 +54,18 @@ function OnboardingModal(props) {
 					</DummyDiv>
 				}
 			>
-				{images.map((image, index) => (
+				{slides.map((slide, index) => (
 					<div className="slide">
 						<div className="details">
 							<div>
 								{logo}
-								<p className="mt-12 text-sm text-white font-bold uppercase">{text}</p>
+								<p className="mt-12 text-sm text-white font-bold uppercase">{slide.title}</p>
 							</div>
-							{index === images.length - 1 && (
+							{index === slides.length - 1 && (
 								<Button label={ctaText} className="w-4/6 sm:w-1/2 uppercase" onClick={onClose} primary />
 							)}
 						</div>
-						<img src={image} alt={`onboarding ${index}`} className="object-cover h-full" />
+						<img src={slide.imageSrc} alt={`onboarding ${index}`} className="object-cover h-full" />
 						<div className="overlay" />
 					</div>
 				))}
@@ -76,10 +76,9 @@ function OnboardingModal(props) {
 
 OnboardingModal.propTypes = {
 	open: PropTypes.bool,
-	images: PropTypes.arrayOf(PropTypes.string),
+	slides: PropTypes.arrayOf(PropTypes.shape({ imageSrc: PropTypes.string, title: PropTypes.string })),
 	logo: PropTypes.element,
 	onClose: PropTypes.func,
-	text: PropTypes.string,
 	ctaText: PropTypes.string,
 }
 
