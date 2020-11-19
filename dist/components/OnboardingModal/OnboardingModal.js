@@ -88,7 +88,7 @@ function OnboardingModal(props) {
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "details"
     }, /*#__PURE__*/_react.default.createElement("div", null, logo, /*#__PURE__*/_react.default.createElement("p", {
-      className: "mt-12 text-sm text-white font-bold uppercase"
+      className: "mt-12 text-sm text-white font-bold uppercase px-8"
     }, slide.title)), index === slides.length - 1 && /*#__PURE__*/_react.default.createElement(_Button.Button, {
       label: ctaText,
       className: "w-4/6 sm:w-1/2 uppercase",
@@ -97,7 +97,7 @@ function OnboardingModal(props) {
     })), /*#__PURE__*/_react.default.createElement("img", {
       src: slide.imageSrc,
       alt: "onboarding ".concat(index),
-      className: "object-cover h-full"
+      className: "object-cover object-center h-full w-full"
     }), /*#__PURE__*/_react.default.createElement("div", {
       className: "overlay"
     }));
