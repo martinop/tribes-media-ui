@@ -29,6 +29,7 @@ function Dropdown(props) {
     placeholder: placeholder,
     arrowOpen: /*#__PURE__*/_react.default.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
+      className: "ml-8",
       width: "15",
       height: "15",
       viewBox: "0 0 24 24",
@@ -38,6 +39,7 @@ function Dropdown(props) {
     })),
     arrowClosed: /*#__PURE__*/_react.default.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
+      className: "ml-8",
       width: "15",
       height: "15",
       viewBox: "0 0 24 24",
