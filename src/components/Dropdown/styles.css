@@ -1,0 +1,31 @@
+.tribes-media-dropdown .Dropdown-control {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: black;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 3px;
+	padding: 8px 12px;
+}
+
+.tribes-media-dropdown .Dropdown-placeholder.is-selected {
+	color: white;
+	font-weight: 500;
+	font-size: 1rem;
+}
+
+.tribes-media-dropdown .Dropdown-menu {
+	background-color: black;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.tribes-media-dropdown .Dropdown-option {
+	color: white;
+	padding: 10px 12px;
+}
+.tribes-media-dropdown .Dropdown-option:hover,
+.tribes-media-dropdown .Dropdown-option.is-selected {
+	background-color:#212121;
+}

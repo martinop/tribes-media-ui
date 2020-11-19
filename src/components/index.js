@@ -5,3 +5,4 @@ export { default as LoginModal } from './LoginModal';
 export { default as RecoveryPasswordModal } from './RecoveryPasswordModal';
 export { default as AudioPlayer } from './AudioPlayer';
 export { default as AudiosList } from './AudiosList';
+export { default as Dropdown } from './Dropdown';

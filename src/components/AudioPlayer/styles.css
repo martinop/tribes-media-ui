@@ -15,10 +15,18 @@
 	width: 100%;
 	min-height: 5rem;
 }
+
+body.tribes-media-audio-player--open {
+	padding-bottom: 5rem;
+}
+
 @media (min-width: 640px) {
 	.tribes-audio-player {
 		min-height: 6rem;
 	}
+	body.tribes-media-audio-player--open {
+		padding-bottom: 6rem;
+	}	
 }
 
 .ap-progress-animation {

@@ -40,6 +40,7 @@ function AudioPlayer(props) {
   var progressTextRef = _react.default.useRef();
 
   var prevUrl = (0, _usePrevious.default)(url);
+  var prevOpen = (0, _usePrevious.default)(open);
 
   var _React$useState = _react.default.useState(true),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -47,6 +48,14 @@ function AudioPlayer(props) {
       setPaused = _React$useState2[1];
 
   var audioRef = _react.default.useRef();
+
+  _react.default.useEffect(function () {
+    if (prevOpen && !open) {
+      document.body.classList.remove("tribes-media-audio-player--open");
+    } else if (!prevOpen && open) {
+      document.body.classList.add("tribes-media-audio-player--open");
+    }
+  }, [prevOpen, open]);
 
   _react.default.useEffect(function () {
     if (open) {

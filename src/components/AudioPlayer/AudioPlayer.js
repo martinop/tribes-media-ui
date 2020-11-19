@@ -7,9 +7,17 @@ function AudioPlayer(props) {
 	const progressRef = React.createRef();
 	const progressTextRef = React.useRef();
 	const prevUrl = usePrevious(url);
+	const prevOpen = usePrevious(open);
 	const [paused, setPaused] = React.useState(true);
 	const audioRef = React.useRef();
 
+	React.useEffect(() => {
+		if(prevOpen && !open) {
+			document.body.classList.remove("tribes-media-audio-player--open");
+		} else if(!prevOpen && open) {
+			document.body.classList.add("tribes-media-audio-player--open");
+		}
+	}, [prevOpen, open])
 	React.useEffect(() => {
 		if(open) {
 			const hls = new Hls({});
