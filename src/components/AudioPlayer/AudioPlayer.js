@@ -50,7 +50,7 @@ function AudioPlayer(props) {
 
 	return (
 		<div className="tribes-audio-player-container">
-			<div className="tribes-audio-player">
+			<div className="tribes-audio-player px-4">
 				<div className="flex justify-between items-center flex-1 h-full">
 					<div className="flex">
 						<img src={image} alt={`${title} - ${subTitle}`} className="h-16 object-cover mr-4" />

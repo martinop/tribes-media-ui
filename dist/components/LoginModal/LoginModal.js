@@ -43,8 +43,6 @@ function LoginModal(props) {
     },
     validate: (0, _utils.validate)(language),
     onSubmit: function onSubmit(values) {
-      formik.resetForm();
-
       _onSubmit(values);
     }
   });

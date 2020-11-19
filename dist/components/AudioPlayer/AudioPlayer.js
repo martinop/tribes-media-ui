@@ -92,7 +92,7 @@ function AudioPlayer(props) {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "tribes-audio-player-container"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "tribes-audio-player"
+    className: "tribes-audio-player px-4"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "flex justify-between items-center flex-1 h-full"
   }, /*#__PURE__*/_react.default.createElement("div", {

@@ -17,7 +17,6 @@ function LoginModal(props) {
 		},
 		validate: validate(language),
 		onSubmit: values => {
-			formik.resetForm();
 			onSubmit(values);
 		},
 	});
