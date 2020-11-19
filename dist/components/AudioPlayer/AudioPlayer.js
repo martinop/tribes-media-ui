@@ -26,7 +26,9 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function AudioPlayer(props) {
-  var url = props.url,
+  var open = props.open,
+      onClose = props.onClose,
+      url = props.url,
       image = props.image,
       title = props.title,
       subTitle = props.subTitle;
@@ -39,15 +41,15 @@ function AudioPlayer(props) {
   var audioRef = _react.default.useRef();
 
   _react.default.useEffect(function () {
-    var hls = new _hls.default({});
-    hls.loadSource(url);
-    hls.attachMedia(audioRef.current); // hls.on(Hls.Events.MANIFEST_PARSED, () => {
-    // 	audioRef.current.play();
-    // });
-    // audioRef.current.addEventListener("timeupdate", function() {
-    // 	console.log(audioRef.current.currentTime, ref.current.duration);
-    // });
-  }, [audioRef, url]);
+    if (open) {
+      var hls = new _hls.default({});
+      hls.loadSource(url);
+      hls.attachMedia(audioRef.current);
+      audioRef.current.currentTime = 0; // hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      // 	audioRef.current.play();
+      // });
+    }
+  }, [audioRef, url, open]);
 
   function onPressPause() {
     setPaused(true);
@@ -59,6 +61,7 @@ function AudioPlayer(props) {
     audioRef.current.play();
   }
 
+  if (!open) return null;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "tribes-audio-player"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -77,7 +80,7 @@ function AudioPlayer(props) {
     className: "flex"
   }, paused ? /*#__PURE__*/_react.default.createElement("svg", {
     onClick: onPressPlay,
-    className: "opacity-75 cursor-pointer",
+    className: "opacity-75 hover:opacity-50 cursor-pointer",
     version: "1.1",
     xmlns: "http://www.w3.org/2000/svg",
     width: "40px",
@@ -88,7 +91,7 @@ function AudioPlayer(props) {
     d: "M50,0C22.39,0,0,22.39,0,50c0,27.61,22.39,50,50,50c27.61,0,50-22.39,50-50C100,22.39,77.61,0,50,0z M68.84,50.69c-0.14,0.28-0.29,0.42-0.57,0.56L41.2,66.53c-0.29,0.14-0.43,0.14-0.71,0.14c-0.85,0-1.42-0.56-1.42-1.39V34.72 c0-0.83,0.57-1.39,1.42-1.39c0.29,0,0.43,0,0.71,0.14l27.08,15.28C68.98,49.17,69.13,50,68.84,50.69z"
   })) : /*#__PURE__*/_react.default.createElement("svg", {
     onClick: onPressPause,
-    className: "opacity-75 cursor-pointer",
+    className: "opacity-75 hover:opacity-50 cursor-pointer",
     version: "1.1",
     xmlns: "http://www.w3.org/2000/svg",
     width: "40px",
@@ -98,7 +101,8 @@ function AudioPlayer(props) {
   }, /*#__PURE__*/_react.default.createElement("path", {
     d: "M50,0C22.39,0,0,22.39,0,50c0,27.61,22.39,50,50,50c27.61,0,50-22.39,50-50C100,22.39,77.61,0,50,0z M40.63,67.07c0,1.62-1.68,2.93-3.76,2.93c-2.07,0-3.75-1.31-3.75-2.93V30.03c0-1.62,1.68-2.93,3.75-2.93 c2.07,0,3.76,1.31,3.76,2.93V67.07z M67.49,67.07c0,1.62-1.68,2.93-3.75,2.93c-2.07,0-3.76-1.31-3.76-2.93V30.03 c0-1.62,1.68-2.93,3.76-2.93c2.07,0,3.75,1.31,3.75,2.93V67.07z"
   })), /*#__PURE__*/_react.default.createElement("svg", {
-    className: "ml-4 opacity-75 cursor-pointer",
+    onClick: onClose,
+    className: "ml-4 opacity-75 hover:opacity-50 cursor-pointer",
     clssversion: "1.1",
     xmlns: "http://www.w3.org/2000/svg",
     width: "40px",

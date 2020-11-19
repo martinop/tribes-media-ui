@@ -13,6 +13,8 @@ export const Main = () => {
 			image="https://cdn3.themyst.com/AManOnTheMoon.01x00.2015/Metadata/dseries.jpg"
 			title="Episode 1"
 			subTitle="A man on the Moon"
+			open
+			onClose={() => {}}
 		/>
 	)
 }

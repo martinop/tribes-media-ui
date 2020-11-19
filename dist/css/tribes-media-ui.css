@@ -749,6 +749,10 @@ video {
   opacity: 0.75;
 }
 
+.hover\:opacity-50:hover{
+  opacity: 0.5;
+}
+
 .overflow-y-auto{
   overflow-y: auto;
 }
