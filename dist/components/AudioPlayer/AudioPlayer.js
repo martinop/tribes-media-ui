@@ -11,6 +11,8 @@ var _hls = _interopRequireDefault(require("hls.js"));
 
 require("./styles.css");
 
+var _usePrevious = _interopRequireDefault(require("../../hooks/usePrevious"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -33,6 +35,10 @@ function AudioPlayer(props) {
       title = props.title,
       subTitle = props.subTitle;
 
+  var progressRef = /*#__PURE__*/_react.default.createRef();
+
+  var prevUrl = (0, _usePrevious.default)(url);
+
   var _React$useState = _react.default.useState(true),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       paused = _React$useState2[0],
@@ -45,11 +51,25 @@ function AudioPlayer(props) {
       var hls = new _hls.default({});
       hls.loadSource(url);
       hls.attachMedia(audioRef.current);
-      audioRef.current.currentTime = 0; // hls.on(Hls.Events.MANIFEST_PARSED, () => {
-      // 	audioRef.current.play();
-      // });
+      audioRef.current.currentTime = 0;
     }
   }, [audioRef, url, open]);
+
+  _react.default.useEffect(function () {
+    console.log({
+      prevUrl: prevUrl,
+      url: url
+    });
+
+    if (prevUrl && prevUrl !== url) {
+      audioRef.current.currentTime = 0;
+      progressRef.current.style.width = "0%";
+
+      if (!paused) {
+        onPressPause();
+      }
+    }
+  }, [url, prevUrl, paused, progressRef]);
 
   function onPressPause() {
     setPaused(true);
@@ -59,6 +79,13 @@ function AudioPlayer(props) {
   function onPressPlay() {
     setPaused(false);
     audioRef.current.play();
+  }
+
+  function _onClose() {
+    audioRef.current.currentTime = 0;
+    progressRef.current.style.width = "0%";
+    setPaused(true);
+    onClose();
   }
 
   if (!open) return null;
@@ -103,7 +130,7 @@ function AudioPlayer(props) {
   }, /*#__PURE__*/_react.default.createElement("path", {
     d: "M50,0C22.39,0,0,22.39,0,50c0,27.61,22.39,50,50,50c27.61,0,50-22.39,50-50C100,22.39,77.61,0,50,0z M40.63,67.07c0,1.62-1.68,2.93-3.76,2.93c-2.07,0-3.75-1.31-3.75-2.93V30.03c0-1.62,1.68-2.93,3.75-2.93 c2.07,0,3.76,1.31,3.76,2.93V67.07z M67.49,67.07c0,1.62-1.68,2.93-3.75,2.93c-2.07,0-3.76-1.31-3.76-2.93V30.03 c0-1.62,1.68-2.93,3.76-2.93c2.07,0,3.75,1.31,3.75,2.93V67.07z"
   })), /*#__PURE__*/_react.default.createElement("svg", {
-    onClick: onClose,
+    onClick: _onClose,
     className: "ml-4 opacity-75 hover:opacity-50 cursor-pointer",
     clssversion: "1.1",
     xmlns: "http://www.w3.org/2000/svg",
@@ -114,30 +141,34 @@ function AudioPlayer(props) {
   }, /*#__PURE__*/_react.default.createElement("path", {
     d: "M50,0C22.39,0,0,22.39,0,50c0,27.61,22.39,50,50,50c27.61,0,50-22.39,50-50C100,22.39,77.61,0,50,0z M68.98,64.31c1.3,1.3,1.3,3.41-0.01,4.71c-1.3,1.3-3.41,1.3-4.71-0.01L50,54.72l-14.26,14.3c-1.3,1.3-3.41,1.31-4.71,0.01 c-1.3-1.3-1.31-3.41-0.01-4.71L45.29,50L31.02,35.69c-1.3-1.3-1.3-3.41,0.01-4.71c1.3-1.3,3.41-1.3,4.71,0.01L50,45.28l14.26-14.3 c1.3-1.3,3.41-1.31,4.71-0.01c1.3,1.3,1.31,3.41,0.01,4.71L54.71,50L68.98,64.31z"
   })))), /*#__PURE__*/_react.default.createElement(ProgressBar, {
-    audioRef: audioRef
+    audioRef: audioRef,
+    ref: progressRef
   }), /*#__PURE__*/_react.default.createElement("audio", {
     ref: audioRef
   })));
 }
 
-function ProgressBar(props) {
+var ProgressBar = /*#__PURE__*/_react.default.forwardRef(function (props, progressRef) {
   var audioRef = props.audioRef;
 
-  var progressRef = _react.default.useRef();
-
   _react.default.useEffect(function () {
-    var ref = audioRef.current;
+    var ref = audioRef === null || audioRef === void 0 ? void 0 : audioRef.current;
+
+    var _progressRef = progressRef === null || progressRef === void 0 ? void 0 : progressRef.current;
 
     function onTimeUpdate() {
       var percentage = ref.currentTime * 100 / ref.duration;
-      progressRef.current.style.width = "".concat(percentage.toFixed(2), "%");
+
+      if (_progressRef) {
+        _progressRef.style.width = "".concat(percentage.toFixed(2), "%");
+      }
     }
 
     ref.addEventListener("timeupdate", onTimeUpdate);
     return function () {
       return ref.removeEventListener("timeupdate", onTimeUpdate);
     };
-  }, [audioRef]);
+  }, [audioRef, progressRef]);
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "w-full h-1 relative"
@@ -147,7 +178,7 @@ function ProgressBar(props) {
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "absolute h-full bg-white w-full left-0 top-0 opacity-50"
   }));
-}
+});
 
 var _default = AudioPlayer;
 exports.default = _default;
