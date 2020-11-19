@@ -1,7 +1,5 @@
-.tribes-audio-player {
-	display: flex;
-	flex-direction: column;
-	min-height: 6rem;
+
+.tribes-audio-player-container {
 	width: 100%;
 	position: fixed;
 	bottom: 0px;
@@ -10,6 +8,26 @@
 	left: 0;
 }
 
+.tribes-audio-player {
+	display: flex;
+	margin: 0 auto;
+	flex-direction: column;
+	width: 100%;
+	min-height: 6rem;
+}
+
 .ap-progress-animation {
 	transition: width 250ms ease-in;
+}
+
+@media (min-width: 992px) {
+	.tribes-audio-player {
+    max-width: 960px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.tribes-audio-player {
+		max-width: 1140px;
+	}
 }

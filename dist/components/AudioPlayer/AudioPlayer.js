@@ -63,6 +63,8 @@ function AudioPlayer(props) {
 
   if (!open) return null;
   return /*#__PURE__*/_react.default.createElement("div", {
+    className: "tribes-audio-player-container"
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "tribes-audio-player"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "flex justify-between items-center flex-1 h-full"
@@ -115,44 +117,33 @@ function AudioPlayer(props) {
     audioRef: audioRef
   }), /*#__PURE__*/_react.default.createElement("audio", {
     ref: audioRef
-  }));
+  })));
 }
 
 function ProgressBar(props) {
   var audioRef = props.audioRef;
 
-  var _React$useState3 = _react.default.useState({
-    current: 0,
-    duration: 0
-  }),
-      _React$useState4 = _slicedToArray(_React$useState3, 2),
-      times = _React$useState4[0],
-      setTimes = _React$useState4[1];
+  var progressRef = _react.default.useRef();
 
   _react.default.useEffect(function () {
     var ref = audioRef.current;
 
     function onTimeUpdate() {
-      setTimes({
-        current: ref.currentTime,
-        duration: ref.duration
-      });
+      var percentage = ref.currentTime * 100 / ref.duration;
+      progressRef.current.style.width = "".concat(percentage.toFixed(2), "%");
     }
 
     ref.addEventListener("timeupdate", onTimeUpdate);
     return function () {
       return ref.removeEventListener("timeupdate", onTimeUpdate);
     };
-  }, [audioRef, setTimes]);
+  }, [audioRef]);
 
-  var progressPercentage = times.current * 100 / times.duration;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "w-full h-1 relative"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "absolute left-0 top-0 h-full bg-white ap-progress-animation",
-    style: {
-      width: "".concat(progressPercentage, "%")
-    }
+    ref: progressRef,
+    className: "absolute left-0 top-0 h-full bg-white ap-progress-animation"
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "absolute h-full bg-white w-full left-0 top-0 opacity-50"
   }));
