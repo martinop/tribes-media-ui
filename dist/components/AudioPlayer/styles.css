@@ -13,7 +13,12 @@
 	margin: 0 auto;
 	flex-direction: column;
 	width: 100%;
-	min-height: 6rem;
+	min-height: 5rem;
+}
+@media (min-width: 640px) {
+	.tribes-audio-player {
+		min-height: 6rem;
+	}
 }
 
 .ap-progress-animation {

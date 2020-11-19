@@ -28,7 +28,7 @@ function Input(props) {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: containerClassname
   }, /*#__PURE__*/_react.default.createElement("input", _extends({}, restProps, {
-    className: (0, _classnames.default)("tribes-input text-base text-center p-3", className)
+    className: (0, _classnames.default)("tribes-input font-poppins text-base text-center p-3", className)
   })), error && /*#__PURE__*/_react.default.createElement("p", {
     className: "mt-1 text-red-200 text-sm"
   }, error));

@@ -8,7 +8,7 @@ function Input(props) {
 		<div className={containerClassname}>
 			<input
 				{...restProps}
-				className={cx("tribes-input text-base text-center p-3", className)} 
+				className={cx("tribes-input font-poppins text-base text-center p-3", className)} 
 			/>
 			{error && <p className="mt-1 text-red-200 text-sm">{error}</p>}
 		</div>
