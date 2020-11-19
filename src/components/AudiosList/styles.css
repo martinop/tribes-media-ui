@@ -1,0 +1,7 @@
+.tribes-media-audios-list .al-border {
+	border-bottom: 1px solid #2F2C38;
+}
+
+.tribes-media-audios-list .al-border:first-of-type {
+	border-top: 1px solid #2F2C38;
+}

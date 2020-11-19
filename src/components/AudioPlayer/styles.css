@@ -1,0 +1,15 @@
+.tribes-audio-player {
+	display: flex;
+	flex-direction: column;
+	min-height: 6rem;
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	background-color: var(--color-primary);
+	z-index: 1;
+	left: 0;
+}
+
+.ap-progress-animation {
+	transition: width 250ms ease-in;
+}
