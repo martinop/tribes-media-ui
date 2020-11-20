@@ -196,6 +196,8 @@ var ProgressBar = /*#__PURE__*/_react.default.forwardRef(function (props, progre
 
     var _progressRef = progressRef === null || progressRef === void 0 ? void 0 : progressRef.current;
 
+    textRef.current.textContent = "00:00:00";
+
     function onTimeUpdate() {
       var percentage = ref.currentTime * 100 / ref.duration;
 

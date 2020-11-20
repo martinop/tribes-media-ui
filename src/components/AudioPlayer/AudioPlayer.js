@@ -132,6 +132,7 @@ const ProgressBar = React.forwardRef((props, progressRef) => {
 	React.useEffect(() => {
 		const ref = audioRef?.current;
 		const _progressRef = progressRef?.current;
+		textRef.current.textContent = "00:00:00";
 		function onTimeUpdate() {
 			const percentage = (ref.currentTime * 100) / ref.duration;
 			if(_progressRef) {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 function AudiosList(props) {
-	const { list, onClick, showAllLabel } = props;
+	const { list, onClick, showLessLabel, showAllLabel } = props;
 	const [showAll, setShowAll] = React.useState(false);
 	const _list = showAll ? list : list.slice(0, 5);
 	return (
@@ -27,16 +27,14 @@ function AudiosList(props) {
 					</li>
 				))}
 			</ul>
-			{!showAll && (
-				<div className="flex justify-end">
-					<button
-						className="mt-3 font-bold uppercase text-primary"
-						onClick={() => setShowAll(true)}
-					>
-						{showAllLabel}
-					</button>
-				</div>
-			)}
+			<div className="flex justify-end">
+				<button
+					className="mt-3 font-bold uppercase text-primary"
+					onClick={() => setShowAll(!showAll)}
+				>
+					{showAll ? showLessLabel : showAllLabel }
+				</button>
+			</div>
 		</div>
 	)
 }
@@ -44,6 +42,7 @@ function AudiosList(props) {
 AudiosList.propTypes = {
 	onClick: PropTypes.func,
 	showAllLabel: PropTypes.string,
+	showLessLabel: PropTypes.string,
 	list: PropTypes.arrayOf(PropTypes.shape({ title: PropTypes.string, subTitle: PropTypes.string }))
 }
 export default AudiosList;

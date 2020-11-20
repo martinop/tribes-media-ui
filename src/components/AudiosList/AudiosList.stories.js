@@ -27,6 +27,7 @@ export const Main = () => {
 			<AudiosList
 				onClick={onSelect} 
 				showAllLabel="See All"
+				showLessLabel="See Less"
 				list={[
 					{ title: "Episode 1", subTitle: "A man on the moon", url: "https://cdn2.themyst.com/AManOnTheMoon.01x00.2015/Media/manifest.m3u8", image: "https://cdn3.themyst.com/AManOnTheMoon.01x00.2015/Metadata/dseries.jpg" },
 					{ title: "Episode 2", subTitle: "A man on the moon", url: "https://cdn2.themyst.com/ArsParadoxica.01x04.2015/Media/manifest.m3u8", image: "https://cdn3.themyst.com/AManOnTheMoon.01x00.2015/Metadata/dseries.jpg" },

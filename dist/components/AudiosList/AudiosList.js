@@ -28,6 +28,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function AudiosList(props) {
   var list = props.list,
       _onClick = props.onClick,
+      showLessLabel = props.showLessLabel,
       showAllLabel = props.showAllLabel;
 
   var _React$useState = _react.default.useState(false),
@@ -74,19 +75,20 @@ function AudiosList(props) {
       className: "text-primary",
       fill: "currentColor"
     }))));
-  })), !showAll && /*#__PURE__*/_react.default.createElement("div", {
+  })), /*#__PURE__*/_react.default.createElement("div", {
     className: "flex justify-end"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "mt-3 font-bold uppercase text-primary",
     onClick: function onClick() {
-      return setShowAll(true);
+      return setShowAll(!showAll);
     }
-  }, showAllLabel)));
+  }, showAll ? showLessLabel : showAllLabel)));
 }
 
 AudiosList.propTypes = {
   onClick: _propTypes.default.func,
   showAllLabel: _propTypes.default.string,
+  showLessLabel: _propTypes.default.string,
   list: _propTypes.default.arrayOf(_propTypes.default.shape({
     title: _propTypes.default.string,
     subTitle: _propTypes.default.string
