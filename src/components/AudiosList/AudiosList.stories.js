@@ -21,7 +21,6 @@ export const Main = () => {
 
 	function onClose() {
 		setOpen(false);
-		setSelected(baseSelected);
 	}
 	return (
 		<div className="bg-black p-4">

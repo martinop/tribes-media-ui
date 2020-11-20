@@ -7,11 +7,15 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _framerMotion = require("framer-motion");
+
 var _hls = _interopRequireDefault(require("hls.js"));
 
-require("./styles.css");
-
 var _usePrevious = _interopRequireDefault(require("../../hooks/usePrevious"));
+
+var _utils = require("./utils");
+
+require("./styles.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34,40 +38,57 @@ function AudioPlayer(props) {
       image = props.image,
       title = props.title,
       subTitle = props.subTitle;
+  var prevOpen = (0, _usePrevious.default)(open);
+
+  var _React$useState = _react.default.useState(open),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      show = _React$useState2[0],
+      setShow = _React$useState2[1];
 
   var progressRef = /*#__PURE__*/_react.default.createRef();
 
   var progressTextRef = _react.default.useRef();
 
   var prevUrl = (0, _usePrevious.default)(url);
-  var prevOpen = (0, _usePrevious.default)(open);
 
-  var _React$useState = _react.default.useState(true),
-      _React$useState2 = _slicedToArray(_React$useState, 2),
-      paused = _React$useState2[0],
-      setPaused = _React$useState2[1];
+  var _React$useState3 = _react.default.useState(true),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      paused = _React$useState4[0],
+      setPaused = _React$useState4[1];
 
   var audioRef = _react.default.useRef();
 
   _react.default.useEffect(function () {
-    if (prevOpen && !open) {
-      document.body.classList.remove("tribes-media-audio-player--open");
-    } else if (!prevOpen && open) {
+    if (open && !show) {
       document.body.classList.add("tribes-media-audio-player--open");
+      setShow(true);
     }
-  }, [prevOpen, open]);
+  }, [open, show]);
 
   _react.default.useEffect(function () {
-    if (open) {
+    if (prevOpen && !open) {
+      document.body.classList.remove("tribes-media-audio-player--open");
+      hide();
+    }
+  }, [open, prevOpen]);
+
+  function hide() {
+    setTimeout(function () {
+      setShow(false);
+    }, 400);
+  }
+
+  _react.default.useEffect(function () {
+    if (show) {
       var hls = new _hls.default({});
       hls.loadSource(url);
       hls.attachMedia(audioRef.current);
       audioRef.current.currentTime = 0;
     }
-  }, [audioRef, url, open]);
+  }, [audioRef, url, show]);
 
   _react.default.useEffect(function () {
-    if (open && prevUrl && prevUrl !== url) {
+    if (show && prevUrl && prevUrl !== url) {
       audioRef.current.currentTime = 0;
       progressRef.current.style.width = "0%";
 
@@ -75,7 +96,7 @@ function AudioPlayer(props) {
         onPressPause();
       }
     }
-  }, [open, url, prevUrl, paused, progressRef]);
+  }, [show, url, prevUrl, paused, progressRef]);
 
   function onPressPause() {
     setPaused(true);
@@ -94,9 +115,15 @@ function AudioPlayer(props) {
     onClose();
   }
 
-  if (!open) return null;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "tribes-audio-player-container font-poppins"
+  if (!show) return null;
+  return /*#__PURE__*/_react.default.createElement(_framerMotion.motion.div, {
+    className: "tribes-audio-player-container font-poppins z-10",
+    variants: _utils.bodyAnimation,
+    transition: {
+      duration: 0.3
+    },
+    initial: "close",
+    animate: open ? 'open' : 'close'
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "tribes-audio-player sm:px-4"
   }, /*#__PURE__*/_react.default.createElement("div", {

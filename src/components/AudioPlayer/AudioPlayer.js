@@ -1,41 +1,58 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Hls from 'hls.js';
-import './styles.css'
 import usePrevious from '../../hooks/usePrevious';
+import { bodyAnimation } from './utils'
+import './styles.css'
+
 function AudioPlayer(props) {
 	const { open, onClose, url, image, title, subTitle } = props;
+	const prevOpen = usePrevious(open);
+	const [show, setShow] = React.useState(open);
 	const progressRef = React.createRef();
 	const progressTextRef = React.useRef();
 	const prevUrl = usePrevious(url);
-	const prevOpen = usePrevious(open);
 	const [paused, setPaused] = React.useState(true);
 	const audioRef = React.useRef();
 
 	React.useEffect(() => {
-		if(prevOpen && !open) {
-			document.body.classList.remove("tribes-media-audio-player--open");
-		} else if(!prevOpen && open) {
+		if (open && !show) {
 			document.body.classList.add("tribes-media-audio-player--open");
+			setShow(true);
 		}
-	}, [prevOpen, open])
+	}, [open, show]);
+
 	React.useEffect(() => {
-		if(open) {
+		if (prevOpen && !open) {
+			document.body.classList.remove("tribes-media-audio-player--open");
+			hide();
+		}
+	}, [open, prevOpen]);
+
+	function hide() {
+		setTimeout(() => {
+			setShow(false);
+		}, 400);
+	}
+
+	React.useEffect(() => {
+		if(show) {
 			const hls = new Hls({});
 			hls.loadSource(url);
 			hls.attachMedia(audioRef.current);
 			audioRef.current.currentTime = 0;
 		}
-	}, [audioRef, url, open])
+	}, [audioRef, url, show])
 
 	React.useEffect(() => {
-		if(open && prevUrl && prevUrl !== url) {
+		if(show && prevUrl && prevUrl !== url) {
 			audioRef.current.currentTime = 0;
 			progressRef.current.style.width = "0%";
 			if(!paused) {
 				onPressPause();
 			}
 		}
-	}, [open, url, prevUrl, paused, progressRef])
+	}, [show, url, prevUrl, paused, progressRef])
 	
 	function onPressPause() {
 		setPaused(true);
@@ -54,10 +71,16 @@ function AudioPlayer(props) {
 		onClose()
 	}
 
-	if(!open) return null;
+	if(!show) return null;
 
 	return (
-		<div className="tribes-audio-player-container font-poppins">
+		<motion.div
+			className="tribes-audio-player-container font-poppins z-10"
+			variants={bodyAnimation}
+			transition={{ duration: 0.3 }}
+			initial="close"
+			animate={open ? 'open' : 'close'}
+		>
 			<div className="tribes-audio-player sm:px-4">
 				<div className="flex justify-between items-center flex-1 h-full px-2 sm:px-0">
 					<div className="flex text-sm sm:text-base">
@@ -99,7 +122,7 @@ function AudioPlayer(props) {
 				<audio ref={audioRef} />
 			</div>
 
-		</div>
+		</motion.div>
 	)
 }
 
