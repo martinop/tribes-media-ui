@@ -860,6 +860,12 @@ video {
   text-align: center;
 }
 
+.text-black{
+  --text-opacity: 1;
+  color: #000;
+  color: rgba(0, 0, 0, var(--text-opacity));
+}
+
 .text-white{
   --text-opacity: 1;
   color: #fff;

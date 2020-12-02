@@ -14,9 +14,6 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
-.button--primary {
-  color: white;
-}
 
 .button--secondary:not(.disabled):hover {
   background-color: transparent;
