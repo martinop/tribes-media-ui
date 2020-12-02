@@ -25,17 +25,15 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
  * Primary UI component for user interaction
  */
 var Button = function Button(_ref) {
-  var primary = _ref.primary,
-      backgroundColor = _ref.backgroundColor,
+  var color = _ref.color,
       size = _ref.size,
       label = _ref.label,
       disabled = _ref.disabled,
       className = _ref.className,
-      props = _objectWithoutProperties(_ref, ["primary", "backgroundColor", "size", "label", "disabled", "className"]);
+      props = _objectWithoutProperties(_ref, ["color", "size", "label", "disabled", "className"]);
 
-  var mode = primary ? 'button--primary' : 'button--secondary';
-  var primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary');
-  var isLightColor = (0, _getIsLightColor.default)(primaryColor);
+  var mode = "button--".concat(color);
+  var isLightColor = (0, _getIsLightColor.default)();
   return /*#__PURE__*/_react.default.createElement("button", _extends({
     type: "button",
     className: ['font-poppins button', isLightColor ? 'text-black' : 'text-white', "button--".concat(size), className && className, disabled ? 'disabled' : '', mode].join(' ')
@@ -44,33 +42,13 @@ var Button = function Button(_ref) {
 
 exports.Button = Button;
 Button.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
   primary: _propTypes.default.bool,
-
-  /**
-   * What background color to use
-   */
-  backgroundColor: _propTypes.default.string,
-
-  /**
-   * How large should the button be?
-   */
   size: _propTypes.default.oneOf(['small', 'medium', 'large']),
-
-  /**
-   * Button contents
-   */
   label: _propTypes.default.string.isRequired,
-
-  /**
-   * Optional click handler
-   */
   onClick: _propTypes.default.func
 };
 Button.defaultProps = {
-  primary: false,
+  color: "secondary",
   size: 'medium',
   onClick: undefined
 };

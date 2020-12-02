@@ -9,6 +9,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _classnames = _interopRequireDefault(require("classnames"));
 
+var _getIsLightColor = _interopRequireDefault(require("../../utils/getIsLightColor"));
+
 require("./styles.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -25,10 +27,11 @@ function Input(props) {
       containerClassname = props.containerClassname,
       restProps = _objectWithoutProperties(props, ["className", "error", "containerClassname"]);
 
+  var isLightColor = (0, _getIsLightColor.default)();
   return /*#__PURE__*/_react.default.createElement("div", {
     className: containerClassname
   }, /*#__PURE__*/_react.default.createElement("input", _extends({}, restProps, {
-    className: (0, _classnames.default)("tribes-input font-poppins text-base text-center p-3", className)
+    className: (0, _classnames.default)("tribes-input font-poppins text-base text-center p-3", isLightColor ? "text-black" : "text-primary", className)
   })), error && /*#__PURE__*/_react.default.createElement("p", {
     className: "mt-1 text-red-200 text-sm"
   }, error));

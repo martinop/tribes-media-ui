@@ -62,7 +62,7 @@ function OnboardingModal(props) {
 								<p className="mt-12 text-sm text-white font-bold uppercase px-8">{slide.title}</p>
 							</div>
 							{index === slides.length - 1 && (
-								<Button label={ctaText} className="w-4/6 sm:w-1/2 uppercase" onClick={onClose} primary />
+								<Button label={ctaText} className="w-4/6 sm:w-1/2 uppercase" onClick={onClose} color="primary" />
 							)}
 						</div>
 						<img src={slide.imageSrc} alt={`onboarding ${index}`} className="object-cover object-center h-full w-full" />

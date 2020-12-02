@@ -9,7 +9,7 @@ import { Button } from '../Button/Button';
 import { validate } from './utils';
 
 function LoginModal(props) {
-	const { open, onClose, loginLabel, logo, title, disabled, onClickForgot, onSubmit, language, forgotLabel } = props;
+	const { open, onClose, loginLabel, color, logo, title, disabled, onClickForgot, onSubmit, language, forgotLabel } = props;
 	const formik = useFormik({
 		initialValues: {
 			email: '',
@@ -57,9 +57,21 @@ function LoginModal(props) {
 						value={formik.values.password}
 						error={formik.touched.password && formik.errors.password}
 					/>
-					<Button label={loginLabel} className="uppercase w-full" type="submit" disabled={!isEmpty(formik.errors) || disabled} />
+					<Button
+						label={loginLabel}
+						className="uppercase w-full"
+						type="submit"
+						color={color}
+						disabled={!isEmpty(formik.errors) || disabled}
+					/>
 				</div>
-				<button type="button" onClick={onClickForgot} className="mt-4 text-white text-center underline text-base">{forgotLabel}</button>
+				<button
+					type="button"
+					onClick={onClickForgot}
+					className="mt-4 text-white text-center underline text-base"
+				>
+					{forgotLabel}
+				</button>
 			</form>
 		</Modal>
 	)
@@ -72,8 +84,13 @@ LoginModal.propTypes = {
 	onClickForgot: PropTypes.func,
 	disabled: PropTypes.bool,
 	onSubmit: PropTypes.func,
+	color: PropTypes.oneOf(["primary", "secondary"]),
 	onClose: PropTypes.func,
 	language: PropTypes.oneOf(["en", "es"])
+}
+
+LoginModal.defaultProps = {
+	color: "primary"
 }
 
 export default LoginModal;

@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = isLightColor;
 
-function isLightColor(color) {
-  var hex = color.replace('#', '');
+function isLightColor() {
+  var hex = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').replace('#', '');
   var cr = parseInt(hex.substr(0, 2), 16);
   var cg = parseInt(hex.substr(2, 2), 16);
   var cb = parseInt(hex.substr(4, 2), 16);

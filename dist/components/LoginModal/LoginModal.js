@@ -29,6 +29,7 @@ function LoginModal(props) {
   var open = props.open,
       onClose = props.onClose,
       loginLabel = props.loginLabel,
+      color = props.color,
       logo = props.logo,
       title = props.title,
       disabled = props.disabled,
@@ -84,6 +85,7 @@ function LoginModal(props) {
     label: loginLabel,
     className: "uppercase w-full",
     type: "submit",
+    color: color,
     disabled: !(0, _isEmpty.default)(formik.errors) || disabled
   })), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
@@ -99,8 +101,12 @@ LoginModal.propTypes = {
   onClickForgot: _propTypes.default.func,
   disabled: _propTypes.default.bool,
   onSubmit: _propTypes.default.func,
+  color: _propTypes.default.oneOf(["primary", "secondary"]),
   onClose: _propTypes.default.func,
   language: _propTypes.default.oneOf(["en", "es"])
+};
+LoginModal.defaultProps = {
+  color: "primary"
 };
 var _default = LoginModal;
 exports.default = _default;

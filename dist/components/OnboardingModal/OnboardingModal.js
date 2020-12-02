@@ -93,7 +93,7 @@ function OnboardingModal(props) {
       label: ctaText,
       className: "w-4/6 sm:w-1/2 uppercase",
       onClick: onClose,
-      primary: true
+      color: "primary"
     })), /*#__PURE__*/_react.default.createElement("img", {
       src: slide.imageSrc,
       alt: "onboarding ".concat(index),
