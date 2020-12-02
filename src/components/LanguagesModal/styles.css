@@ -5,14 +5,14 @@
 }
 
 .languages-modal svg path {
-	fill: inherit;
+	fill: white;
 }
 
 .languages-modal-list li {
 	position: relative;
 	font-weight: 500;
 	line-height: 24px;
-	color: inherit;
+	color: white;
 	text-align: center;
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
