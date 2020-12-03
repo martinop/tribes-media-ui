@@ -55,7 +55,7 @@ function OnboardingModal(props) {
     allowClose: false,
     id: "onboarding-modal",
     onClose: onClose,
-    className: "onboarding-modal"
+    className: "onboarding-modal p-0"
   }, /*#__PURE__*/_react.default.createElement(_reactSlick.default, {
     dots: true,
     infinite: false,

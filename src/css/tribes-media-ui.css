@@ -786,6 +786,10 @@ video {
   overflow-y: auto;
 }
 
+.p-0{
+  padding: 0;
+}
+
 .p-3{
   padding: 0.75rem;
 }
