@@ -754,6 +754,14 @@ video {
   margin-bottom: 5rem;
 }
 
+.max-h-full{
+  max-height: 100%;
+}
+
+.max-w-full{
+  max-width: 100%;
+}
+
 .object-cover{
   object-fit: cover;
 }

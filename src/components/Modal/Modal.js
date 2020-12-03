@@ -36,11 +36,11 @@ function Modal(props) {
 			shouldCloseOnEsc={allowClose}
 			shouldCloseOnOverlayClick={allowClose}
 			overlayClassName='bm-blur inset-0 flex fixed'
-			className='flex flex-col w-full'
+			className='bm-body-container flex flex-col m-auto'
 		>
 			<motion.div
 				className={cx(
-					'bm-body font-poppins relative flex flex-col h-auto m-auto bg-white shadow-md p-8 pt-12 overflow-y-auto',
+					'max-w-full max-h-full font-poppins relative flex flex-col h-auto m-auto bg-white shadow-md p-8 pt-12 overflow-y-auto',
 					className,
 					{ 'bm-small': size === 'small', 'bm-medium': size === 'medium' },
 				)}

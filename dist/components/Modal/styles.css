@@ -4,7 +4,7 @@
 	background-color: rgba(45, 58, 93, 0.5);
 }
 
-.bm-body {
+.bm-body-container {
 	max-height: 90vh;
 	max-width: 90%;
 }
