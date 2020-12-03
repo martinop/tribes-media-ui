@@ -31,7 +31,7 @@ function OnboardingModal(props) {
 			allowClose={false}
 			id="onboarding-modal"
 			onClose={onClose}
-			className="onboarding-modal"
+			className="onboarding-modal p-0"
 		>
 			<Slider
 				dots
