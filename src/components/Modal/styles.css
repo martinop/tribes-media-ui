@@ -5,6 +5,7 @@
 }
 
 .bm-body-container {
+	outline: none;
 	max-height: 90vh;
 	max-width: 90%;
 }
