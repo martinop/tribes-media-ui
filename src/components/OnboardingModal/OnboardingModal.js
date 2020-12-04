@@ -28,7 +28,6 @@ function OnboardingModal(props) {
 	return (
 		<Modal
 			open={open}
-			allowClose={false}
 			id="onboarding-modal"
 			onClose={onClose}
 			className="onboarding-modal p-0"
