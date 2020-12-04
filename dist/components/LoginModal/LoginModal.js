@@ -106,7 +106,7 @@ LoginModal.propTypes = {
   language: _propTypes.default.oneOf(["en", "es"])
 };
 LoginModal.defaultProps = {
-  color: "primary"
+  color: "secondary"
 };
 var _default = LoginModal;
 exports.default = _default;

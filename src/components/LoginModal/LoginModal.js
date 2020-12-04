@@ -90,7 +90,7 @@ LoginModal.propTypes = {
 }
 
 LoginModal.defaultProps = {
-	color: "primary"
+	color: "secondary"
 }
 
 export default LoginModal;

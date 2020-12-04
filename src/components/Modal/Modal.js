@@ -8,7 +8,7 @@ import { bodyAnimation } from './utils';
 import './styles.css';
 
 function Modal(props) {
-	const { open, id, children, size, onClose, allowClose, className } = props;
+	const { open, id, padded, children, size, onClose, allowClose, className } = props;
 	const prevOpen = usePrevious(open);
 	const [show, setShow] = React.useState(open);
 	React.useEffect(() => {
@@ -40,8 +40,9 @@ function Modal(props) {
 		>
 			<motion.div
 				className={cx(
-					'max-w-full max-h-full font-poppins relative flex flex-col h-auto m-auto bg-white shadow-md p-8 pt-12 overflow-y-auto',
+					'max-w-full max-h-full font-poppins relative flex flex-col h-auto m-auto bg-white shadow-md overflow-y-auto',
 					className,
+					padded && 'p-8',
 					{ 'bm-small': size === 'small', 'bm-medium': size === 'medium' },
 				)}
 				variants={bodyAnimation}
@@ -68,11 +69,13 @@ function Modal(props) {
 
 Modal.defaultProps = {
 	size: 'medium',
+	padded: true,
 	allowClose: true,
 };
 
 Modal.propTypes = {
 	open: PropTypes.bool,
+	padded: PropTypes.bool,
 	onClose: PropTypes.func,
 	allowClose: PropTypes.bool,
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),

@@ -21,6 +21,7 @@ export const Main = () => {
 				onSubmit={() => setEmailSent(true)}
 				emailSent={emailSent}
 				sentMessage="A confirmation has been sent to your email."
+				color="secondary"
 				returnLoginLabel="Return to Login"
 				logo={
 					<svg width="216" height="50" viewBox="0 0 216 50" fill="none" xmlns="http://www.w3.org/2000/svg">

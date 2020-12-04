@@ -9,8 +9,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _getIsLightColor = _interopRequireDefault(require("../../utils/getIsLightColor"));
-
 require("./button.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -33,10 +31,9 @@ var Button = function Button(_ref) {
       props = _objectWithoutProperties(_ref, ["color", "size", "label", "disabled", "className"]);
 
   var mode = "button--".concat(color);
-  var isLightColor = (0, _getIsLightColor.default)();
   return /*#__PURE__*/_react.default.createElement("button", _extends({
     type: "button",
-    className: ['font-poppins button', isLightColor ? 'text-black' : 'text-white', "button--".concat(size), className && className, disabled ? 'disabled' : '', mode].join(' ')
+    className: ['font-poppins button', "button--".concat(size), className && className, disabled ? 'disabled' : '', mode].join(' ')
   }, props), label);
 };
 

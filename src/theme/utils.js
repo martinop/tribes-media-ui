@@ -7,6 +7,9 @@ export const mapTheme = (variables) => {
   return {
     '--color-primary': variables.primary || '',
     '--color-secondary': variables.secondary || '',
+    '--text-color-primary': variables.primaryText || '',
+    '--text-color-secondary': variables.secondaryText || '',
+
   };
 };
 

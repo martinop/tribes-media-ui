@@ -1,5 +1,5 @@
-export default function isLightColor() {
-	const hex = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').replace('#', '');
+export default function isLightColor(color = 'primary') {
+	const hex = getComputedStyle(document.documentElement).getPropertyValue(`--color-${color}`).replace('#', '');
 	const cr = parseInt(hex.substr(0, 2), 16);
 	const cg = parseInt(hex.substr(2, 2), 16);
 	const cb = parseInt(hex.substr(4, 2), 16);

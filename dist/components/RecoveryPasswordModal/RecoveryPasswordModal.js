@@ -28,6 +28,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function RecoveryPasswordModal(props) {
   var open = props.open,
       onClose = props.onClose,
+      color = props.color,
       recoveryLabel = props.recoveryLabel,
       logo = props.logo,
       onReturnLogin = props.onReturnLogin,
@@ -71,6 +72,7 @@ function RecoveryPasswordModal(props) {
     value: formik.values.email,
     error: formik.touched.email && formik.errors.email
   }), /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    color: color,
     label: recoveryLabel,
     className: "uppercase w-full",
     type: "submit",
@@ -98,7 +100,11 @@ RecoveryPasswordModal.propTypes = {
   sentMessage: _propTypes.default.string,
   emailSent: _propTypes.default.bool,
   returnLoginLabel: _propTypes.default.string,
-  language: _propTypes.default.oneOf(["en", "es"])
+  language: _propTypes.default.oneOf(["en", "es"]),
+  color: _propTypes.default.oneOf(["primary", "secondary"])
+};
+RecoveryPasswordModal.defaultProps = {
+  color: "primary"
 };
 var _default = RecoveryPasswordModal;
 exports.default = _default;

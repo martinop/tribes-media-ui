@@ -8,8 +8,14 @@
   letter-spacing: 0.2em;
   border: solid 3px transparent;
   background-color: var(--color-primary);
+  color: var(--text-color-primary);
   transition: all 300ms ease-in-out;
 }
+
+.button--primary:not(.disabled):hover {
+  border-color: var(--text-color-primary);
+}
+
 .button.disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -20,8 +26,9 @@
   border-color: var(--color-secondary);
   color:var(--color-secondary);
 }
+
 .button--secondary {
-  color: white;
+  color: var(--text-color-secondary);
   background-color: var(--color-secondary);
 }
 .button--small {

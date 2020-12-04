@@ -52,6 +52,7 @@ function OnboardingModal(props) {
       slides = props.slides;
   return /*#__PURE__*/_react.default.createElement(_Modal.default, {
     open: open,
+    padded: false,
     id: "onboarding-modal",
     onClose: onClose,
     className: "onboarding-modal p-0"

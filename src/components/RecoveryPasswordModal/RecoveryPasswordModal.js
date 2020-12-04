@@ -12,6 +12,7 @@ function RecoveryPasswordModal(props) {
 	const {
 		open, 
 		onClose,
+		color,
 		recoveryLabel,
 		logo,
 		onReturnLogin,
@@ -56,7 +57,7 @@ function RecoveryPasswordModal(props) {
 						value={formik.values.email}
 						error={formik.touched.email && formik.errors.email}
 					/>
-					<Button label={recoveryLabel} className="uppercase w-full" type="submit" disabled={!isEmpty(formik.errors) || disabled} />
+					<Button color={color} label={recoveryLabel} className="uppercase w-full" type="submit" disabled={!isEmpty(formik.errors) || disabled} />
 				</form>
 			)}
 			{emailSent && (
@@ -83,7 +84,12 @@ RecoveryPasswordModal.propTypes = {
 	sentMessage: PropTypes.string,
 	emailSent: PropTypes.bool,
 	returnLoginLabel: PropTypes.string,
-	language: PropTypes.oneOf(["en", "es"])
+	language: PropTypes.oneOf(["en", "es"]),
+	color: PropTypes.oneOf(["primary", "secondary"]),
+}
+
+RecoveryPasswordModal.defaultProps = {
+	color: "primary"
 }
 
 export default RecoveryPasswordModal;

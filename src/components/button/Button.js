@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getIsLightColor from '../../utils/getIsLightColor';
 import './button.css';
 
 /**
@@ -8,11 +7,10 @@ import './button.css';
  */
 export const Button = ({ color, size, label, disabled, className, ...props }) => {
   const mode = `button--${color}`
-  const isLightColor = getIsLightColor()
   return (
     <button
       type="button"
-      className={['font-poppins button', isLightColor ? 'text-black' : 'text-white',  `button--${size}`, className && className, disabled ? 'disabled' : '', mode].join(' ')}
+      className={['font-poppins button', `button--${size}`, className && className, disabled ? 'disabled' : '', mode].join(' ')}
       {...props}
     >
       {label}

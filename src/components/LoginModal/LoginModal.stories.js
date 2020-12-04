@@ -16,7 +16,6 @@ export const Main = () => {
 				onClose={() => setOpen(false)}
 				title="Claim for myst"
 				loginLabel="Log In"
-				color="secondary"
 				language="en"
 				forgotLabel="Forgot Password?"
 				onSubmit={values => alert(JSON.stringify(values, null, 2))}

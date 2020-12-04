@@ -44,6 +44,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Modal(props) {
   var open = props.open,
       id = props.id,
+      padded = props.padded,
       children = props.children,
       size = props.size,
       onClose = props.onClose,
@@ -81,7 +82,7 @@ function Modal(props) {
     overlayClassName: "bm-blur inset-0 flex fixed",
     className: "bm-body-container flex flex-col m-auto"
   }, /*#__PURE__*/React.createElement(_framerMotion.motion.div, {
-    className: (0, _classnames.default)('max-w-full max-h-full font-poppins relative flex flex-col h-auto m-auto bg-white shadow-md p-8 pt-12 overflow-y-auto', className, {
+    className: (0, _classnames.default)('max-w-full max-h-full font-poppins relative flex flex-col h-auto m-auto bg-white shadow-md overflow-y-auto', className, padded && 'p-8', {
       'bm-small': size === 'small',
       'bm-medium': size === 'medium'
     }),
@@ -106,10 +107,12 @@ function Modal(props) {
 ;
 Modal.defaultProps = {
   size: 'medium',
+  padded: true,
   allowClose: true
 };
 Modal.propTypes = {
   open: _propTypes.default.bool,
+  padded: _propTypes.default.bool,
   onClose: _propTypes.default.func,
   allowClose: _propTypes.default.bool,
   children: _propTypes.default.oneOfType([_propTypes.default.element, _propTypes.default.arrayOf(_propTypes.default.element)]),
