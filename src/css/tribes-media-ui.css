@@ -267,6 +267,11 @@ textarea {
  * 2. Remove the padding in IE 10.
  */
 
+[type="checkbox"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
@@ -616,6 +621,10 @@ video {
   align-self: flex-end;
 }
 
+.self-center{
+  align-self: center;
+}
+
 .justify-end{
   justify-content: flex-end;
 }
@@ -680,6 +689,10 @@ video {
   font-size: 1.125rem;
 }
 
+.text-2xl{
+  font-size: 1.5rem;
+}
+
 .leading-7{
   line-height: 1.75rem;
 }
@@ -688,8 +701,17 @@ video {
   line-height: 1.25;
 }
 
+.leading-snug{
+  line-height: 1.375;
+}
+
 .m-auto{
   margin: auto;
+}
+
+.my-2{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .my-auto{
@@ -714,6 +736,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
 .mt-3{
   margin-top: 0.75rem;
 }
@@ -734,8 +760,16 @@ video {
   margin-top: 1.5rem;
 }
 
+.mt-8{
+  margin-top: 2rem;
+}
+
 .ml-8{
   margin-left: 2rem;
+}
+
+.mt-10{
+  margin-top: 2.5rem;
 }
 
 .mb-10{
@@ -748,6 +782,10 @@ video {
 
 .mb-12{
   margin-bottom: 3rem;
+}
+
+.mb-16{
+  margin-bottom: 4rem;
 }
 
 .mb-20{
@@ -1000,8 +1038,16 @@ video {
     width: 50%;
   }
 
+  .sm\:w-2\/3{
+    width: 66.666667%;
+  }
+
   .sm\:w-3\/5{
     width: 60%;
+  }
+
+  .sm\:w-5\/6{
+    width: 83.333333%;
   }
 }
 

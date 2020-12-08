@@ -1,0 +1,8 @@
+form.stripe-form .card-form-input {
+	border-radius: 3px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0.05em;
+	background: rgba(255, 255, 255, 0.7);
+	margin-top: 1px;
+}

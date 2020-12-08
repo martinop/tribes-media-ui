@@ -6,3 +6,5 @@ export { default as RecoveryPasswordModal } from './RecoveryPasswordModal';
 export { default as AudioPlayer } from './AudioPlayer';
 export { default as AudiosList } from './AudiosList';
 export { default as Dropdown } from './Dropdown';
+export { default as SubscribeModal } from './SubscribeModal';
+export { default as SignupModal } from './SignupModal';

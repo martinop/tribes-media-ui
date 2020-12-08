@@ -2,15 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './button.css';
 
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({ color, size, label, disabled, className, ...props }) => {
+const Button = ({ color, size, label, disabled, onClick, className, ...props }) => {
   const mode = `button--${color}`
   return (
     <button
       type="button"
       className={['font-poppins button', `button--${size}`, className && className, disabled ? 'disabled' : '', mode].join(' ')}
+      {...!disabled && onClick && { onClick }}
       {...props}
     >
       {label}
@@ -30,3 +28,5 @@ Button.defaultProps = {
   size: 'medium',
   onClick: undefined,
 };
+
+export default Button;

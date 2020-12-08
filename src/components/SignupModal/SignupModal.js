@@ -7,13 +7,16 @@ import './styles.css';
 import Input from '../Input';
 import Button from '../Button';
 import { validate } from './utils';
+import Checkbox from '../Checkbox';
 
-function LoginModal(props) {
-	const { open, onClose, loginLabel, color, logo, title, disabled, onClickForgot, onSubmit, language, forgotLabel } = props;
+function SignupModal(props) {
+	const { open, onClose, color, labels, logo, disabled, onSubmit, language } = props;
 	const formik = useFormik({
 		initialValues: {
 			email: '',
-			password: ''
+			password: '',
+			termsAndConditions: false,
+			repeatPassword: '',
 		},
 		validate: validate(language),
 		onSubmit: values => {
@@ -23,14 +26,14 @@ function LoginModal(props) {
 	return (
 		<Modal
 			open={open}
-			id="login-modal"
+			id="signup-modal"
 			onClose={onClose}
-			className="login-modal pt-20"
+			className="signup-modal pt-20"
 		>
 			<div>
 				{logo}
 			</div>
-			<h3 className="text-sm uppercase text-center text-white font-bold mt-6 mb-16">{title}</h3>
+			<h3 className="text-sm uppercase text-center text-white font-bold mt-6 mb-16">{labels.title}</h3>
 			<form onSubmit={formik.handleSubmit} className="w-full sm:w-3/5 flex flex-col">
 				<div className="flex flex-col w-full"> 
 					<Input
@@ -47,7 +50,7 @@ function LoginModal(props) {
 					/>
 					<Input
 						placeholder={language === "en" ? "Password" : "Contraseña"}
-						containerClassname="mb-12" 
+						containerClassname="mb-3" 
 						className="w-full"
 						id="password"
 						name="password"
@@ -57,40 +60,57 @@ function LoginModal(props) {
 						value={formik.values.password}
 						error={formik.touched.password && formik.errors.password}
 					/>
+					<Input
+						placeholder={language === "en" ? "Repeat Password" : "Repetir Contraseña"}
+						containerClassname="mb-3" 
+						className="w-full"
+						id="repeatPassword"
+						name="repeatPassword"
+         		type="password"
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						value={formik.values.repeatPassword}
+						error={formik.touched.repeatPassword && formik.errors.repeatPassword}
+					/>
+					<Checkbox
+						onChange={formik.handleChange}
+						className="mb-12"
+						id="termsAndConditions"
+						name="termsAndConditions"
+						value={formik.values.termsAndConditions}
+						color={color}
+						label={labels.termsAndConditions}
+					/>
 					<Button
-						label={loginLabel}
+						label={labels.confirm}
 						className="uppercase w-full"
 						type="submit"
 						color={color}
 						disabled={!isEmpty(formik.errors) || disabled || !formik.dirty}
 					/>
 				</div>
-				<button
-					type="button"
-					onClick={onClickForgot}
-					className="mt-4 text-white text-center underline text-base self-center"
-				>
-					{forgotLabel}
-				</button>
 			</form>
 		</Modal>
 	)
 }
 
-LoginModal.propTypes = {
+SignupModal.propTypes = {
 	open: PropTypes.bool,
-	loginLabel: PropTypes.string,
 	logo: PropTypes.element,
-	onClickForgot: PropTypes.func,
 	disabled: PropTypes.bool,
 	onSubmit: PropTypes.func,
 	color: PropTypes.oneOf(["primary", "secondary"]),
 	onClose: PropTypes.func,
-	language: PropTypes.oneOf(["en", "es"])
+	language: PropTypes.oneOf(["en", "es"]),
+	labels: PropTypes.shape({
+		title: PropTypes.string,
+		confirm: PropTypes.string,
+		termsAndConditions: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+	}),
 }
 
-LoginModal.defaultProps = {
+SignupModal.defaultProps = {
 	color: "secondary"
 }
 
-export default LoginModal;
+export default SignupModal;

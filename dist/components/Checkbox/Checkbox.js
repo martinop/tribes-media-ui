@@ -7,9 +7,11 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _classnames = _interopRequireDefault(require("classnames"));
+
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-require("./button.css");
+require("./styles.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19,34 +21,44 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-var Button = function Button(_ref) {
-  var color = _ref.color,
-      size = _ref.size,
-      label = _ref.label,
-      disabled = _ref.disabled,
-      onClick = _ref.onClick,
-      className = _ref.className,
-      props = _objectWithoutProperties(_ref, ["color", "size", "label", "disabled", "onClick", "className"]);
+function Checkbox(props) {
+  var color = props.color,
+      className = props.className,
+      label = props.label,
+      onChange = props.onChange,
+      id = props.id,
+      value = props.value,
+      restProps = _objectWithoutProperties(props, ["color", "className", "label", "onChange", "id", "value"]);
 
-  var mode = "button--".concat(color);
-  return /*#__PURE__*/_react.default.createElement("button", _extends({
-    type: "button",
-    className: ['font-poppins button', "button--".concat(size), className && className, disabled ? 'disabled' : '', mode].join(' ')
-  }, !disabled && onClick && {
-    onClick: onClick
-  }, props), label);
-};
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: (0, _classnames.default)("tribes-checkbox mx-auto flex items-center", className)
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: (0, _classnames.default)("checkbox-round", color)
+  }, /*#__PURE__*/_react.default.createElement("input", _extends({
+    type: "checkbox",
+    id: id,
+    onChange: onChange,
+    checked: value
+  }, restProps)), /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: id
+  })), /*#__PURE__*/_react.default.createElement("span", {
+    className: "text-white leading-snug text-xs"
+  }, label));
+}
 
-Button.propTypes = {
-  primary: _propTypes.default.bool,
-  size: _propTypes.default.oneOf(['small', 'medium', 'large']),
-  label: _propTypes.default.string.isRequired,
-  onClick: _propTypes.default.func
+Checkbox.defaultProps = {
+  id: "checkbox"
 };
-Button.defaultProps = {
-  color: "secondary",
-  size: 'medium',
-  onClick: undefined
+Checkbox.propTypes = {
+  className: _propTypes.default.string,
+  onChange: _propTypes.default.func,
+  value: _propTypes.default.bool,
+  id: _propTypes.default.string,
+  label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.node]),
+  color: _propTypes.default.oneOf(["primary", "secondary"])
 };
-var _default = Button;
+Checkbox.defaultProps = {
+  color: "primary"
+};
+var _default = Checkbox;
 exports.default = _default;

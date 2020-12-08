@@ -13,7 +13,7 @@ var _reactSlick = _interopRequireDefault(require("react-slick"));
 
 var _Modal = _interopRequireDefault(require("../Modal"));
 
-var _Button = require("../Button/Button");
+var _Button = _interopRequireDefault(require("../Button"));
 
 require("slick-carousel/slick/slick.css");
 
@@ -89,7 +89,7 @@ function OnboardingModal(props) {
       className: "details"
     }, /*#__PURE__*/_react.default.createElement("div", null, logo, /*#__PURE__*/_react.default.createElement("p", {
       className: "mt-12 text-sm text-white font-bold uppercase px-8"
-    }, slide.title)), index === slides.length - 1 && /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    }, slide.title)), index === slides.length - 1 && /*#__PURE__*/_react.default.createElement(_Button.default, {
       label: ctaText,
       className: "w-4/6 sm:w-1/2 uppercase",
       onClick: onClose,

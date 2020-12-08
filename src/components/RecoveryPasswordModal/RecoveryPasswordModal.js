@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import Modal from '../Modal';
 import './styles.css';
 import Input from '../Input';
-import { Button } from '../Button/Button';
+import Button from '../Button';
 import { validate } from './utils';
 
 function RecoveryPasswordModal(props) {

@@ -19,7 +19,7 @@ require("./styles.css");
 
 var _Input = _interopRequireDefault(require("../Input"));
 
-var _Button = require("../Button/Button");
+var _Button = _interopRequireDefault(require("../Button"));
 
 var _utils = require("./utils");
 
@@ -71,7 +71,7 @@ function RecoveryPasswordModal(props) {
     onBlur: formik.handleBlur,
     value: formik.values.email,
     error: formik.touched.email && formik.errors.email
-  }), /*#__PURE__*/_react.default.createElement(_Button.Button, {
+  }), /*#__PURE__*/_react.default.createElement(_Button.default, {
     color: color,
     label: recoveryLabel,
     className: "uppercase w-full",
@@ -81,7 +81,7 @@ function RecoveryPasswordModal(props) {
     className: "w-3/5 flex flex-col"
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: ["text-white text-center", onReturnLogin && 'mb-10'].join(" ")
-  }, sentMessage), onReturnLogin && /*#__PURE__*/_react.default.createElement(_Button.Button, {
+  }, sentMessage), onReturnLogin && /*#__PURE__*/_react.default.createElement(_Button.default, {
     label: returnLoginLabel,
     className: "uppercase w-full",
     onClick: onReturnLogin
