@@ -10,11 +10,18 @@ import StripeForm from '../StripeForm/StripeForm';
 function EditSubModal(props) {
 	const { open, labels, onClose, apiKey, planSelected, onSubmit, onCancel, color, logo, list, language } = props;
 	const [showForm, setShowForm] = React.useState(false);
+
+	function _onClose() {
+		onClose();
+		setTimeout(() => {
+			setShowForm(false);
+		}, 300)
+	}
 	return (
 		<Modal
 			open={open}
 			id="edit-sub-modal"
-			onClose={onClose}
+			onClose={_onClose}
 			padded={false}
 			className="edit-sub-modal px-8 pt-10 pb-6"
 		>

@@ -53,10 +53,17 @@ function EditSubModal(props) {
       showForm = _React$useState2[0],
       setShowForm = _React$useState2[1];
 
+  function _onClose() {
+    onClose();
+    setTimeout(function () {
+      setShowForm(false);
+    }, 300);
+  }
+
   return /*#__PURE__*/_react.default.createElement(_Modal.default, {
     open: open,
     id: "edit-sub-modal",
-    onClose: onClose,
+    onClose: _onClose,
     padded: false,
     className: "edit-sub-modal px-8 pt-10 pb-6"
   }, /*#__PURE__*/_react.default.createElement(_reactStripeElements.StripeProvider, {
