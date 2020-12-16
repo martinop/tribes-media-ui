@@ -21,6 +21,7 @@ function EditAccountModal(props) {
 			onSubmit(values);
 		},
 	});
+	const emptyFields = !formik.values.email && !formik.values.password;
 	return (
 		<Modal
 			open={open}
@@ -71,7 +72,7 @@ function EditAccountModal(props) {
 						className="uppercase w-full"
 						type="submit"
 						color={color}
-						disabled={!isEmpty(formik.errors) || disabled || !formik.dirty}
+						disabled={!isEmpty(formik.errors) || disabled || !formik.dirty || emptyFields}
 					/>
 				</div>
 			</form>

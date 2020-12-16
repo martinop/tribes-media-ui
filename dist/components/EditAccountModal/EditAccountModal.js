@@ -47,6 +47,7 @@ function EditAccountModal(props) {
       _onSubmit(values);
     }
   });
+  var emptyFields = !formik.values.email && !formik.values.password;
   return /*#__PURE__*/_react.default.createElement(_Modal.default, {
     open: open,
     id: "edit-account-modal",
@@ -94,7 +95,7 @@ function EditAccountModal(props) {
     className: "uppercase w-full",
     type: "submit",
     color: color,
-    disabled: !(0, _isEmpty.default)(formik.errors) || disabled || !formik.dirty
+    disabled: !(0, _isEmpty.default)(formik.errors) || disabled || !formik.dirty || emptyFields
   }))));
 }
 
