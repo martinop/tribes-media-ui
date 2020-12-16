@@ -38,6 +38,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function EditSubModal(props) {
   var open = props.open,
       labels = props.labels,
+      disabled = props.disabled,
       onClose = props.onClose,
       apiKey = props.apiKey,
       planSelected = props.planSelected,
@@ -120,6 +121,7 @@ function EditSubModal(props) {
     className: "w-full sm:w-2/3 flex flex-col mt-6"
   }, /*#__PURE__*/_react.default.createElement(_StripeForm.default, {
     onSubmit: onSubmit,
+    disabled: disabled,
     planSelected: planSelected,
     labels: {
       cardNumber: labels.cardNumber,

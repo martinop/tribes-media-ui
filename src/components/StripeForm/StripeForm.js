@@ -5,7 +5,7 @@ import './style.css';
 import Button from '../Button';
 
 function StripeForm(props) {
-	const { onSubmit, labels, stripe, planSelected } = props;
+	const { onSubmit, disabled, labels, stripe, planSelected } = props;
 	const elementClass = "card-form-input text-base text-center p-3";
 	const [error, setError] = React.useState('');
 	async function _onSubmit(e) {
@@ -32,13 +32,14 @@ function StripeForm(props) {
 				<span className="text-xs text-white font-normal">{labels.cardCVC}</span>
 				<CardCvcElement className={elementClass} />
 			</div>
-			<Button className="w-full mt-10" label={labels.confirm} type={undefined} />
+			<Button disabled={disabled} className="w-full mt-10" label={labels.confirm} type={undefined} />
 		</form>
 	)
 }
 
 StripeForm.propTypes = {
 	onSubmit: PropTypes.func,
+	disabled: PropTypes.bool,
 	planSelected: PropTypes.string,
 	labels: PropTypes.shape({
 		cardNumber: PropTypes.string,

@@ -43,6 +43,7 @@ function SubscribeModal(props) {
       plans = props.plans,
       apiKey = props.apiKey,
       onClickLogin = props.onClickLogin,
+      disabled = props.disabled,
       labels = props.labels,
       onSubmit = props.onSubmit;
 
@@ -113,6 +114,7 @@ function SubscribeModal(props) {
     className: "w-full sm:w-2/3 flex flex-col mt-6"
   }, /*#__PURE__*/_react.default.createElement(_StripeForm.default, {
     onSubmit: onSubmit,
+    disabled: disabled,
     planSelected: planSelected,
     labels: {
       cardNumber: labels.cardNumber,
@@ -127,6 +129,7 @@ SubscribeModal.propTypes = {
   open: _propTypes.default.bool,
   logo: _propTypes.default.element,
   onClose: _propTypes.default.func,
+  disabled: _propTypes.default.bool,
   apiKey: _propTypes.default.string,
   onClickLogin: _propTypes.default.func,
   labels: _propTypes.default.shape({

@@ -16,6 +16,7 @@ function SubscribeModal(props) {
 		plans,
 		apiKey,
 		onClickLogin,
+		disabled,
 		labels,
 		onSubmit,
 	} = props;
@@ -84,6 +85,7 @@ function SubscribeModal(props) {
 							<div className="w-full sm:w-2/3 flex flex-col mt-6">
 								<StripeForm
 									onSubmit={onSubmit}
+									disabled={disabled}
 									planSelected={planSelected}
 									labels={{
 										cardNumber: labels.cardNumber,
@@ -105,6 +107,7 @@ SubscribeModal.propTypes = {
 	open: PropTypes.bool,
 	logo: PropTypes.element,
 	onClose: PropTypes.func,
+	disabled: PropTypes.bool,
 	apiKey: PropTypes.string,
 	onClickLogin: PropTypes.func,
 	labels: PropTypes.shape({

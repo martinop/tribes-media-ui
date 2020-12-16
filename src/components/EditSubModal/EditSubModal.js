@@ -8,7 +8,7 @@ import './styles.css';
 import StripeForm from '../StripeForm/StripeForm';
 
 function EditSubModal(props) {
-	const { open, labels, onClose, apiKey, planSelected, onSubmit, onCancel, color, logo, list, language } = props;
+	const { open, labels, disabled, onClose, apiKey, planSelected, onSubmit, onCancel, color, logo, list, language } = props;
 	const [showForm, setShowForm] = React.useState(false);
 
 	function _onClose() {
@@ -75,6 +75,7 @@ function EditSubModal(props) {
 							<div className="w-full sm:w-2/3 flex flex-col mt-6">
 								<StripeForm
 									onSubmit={onSubmit}
+									disabled={disabled}
 									planSelected={planSelected}
 									labels={{
 										cardNumber: labels.cardNumber,

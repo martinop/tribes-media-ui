@@ -35,6 +35,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function StripeForm(props) {
   var onSubmit = props.onSubmit,
+      disabled = props.disabled,
       labels = props.labels,
       stripe = props.stripe,
       planSelected = props.planSelected;
@@ -106,6 +107,7 @@ function StripeForm(props) {
   }, labels.cardCVC), /*#__PURE__*/_react.default.createElement(_reactStripeElements.CardCvcElement, {
     className: elementClass
   })), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    disabled: disabled,
     className: "w-full mt-10",
     label: labels.confirm,
     type: undefined
@@ -114,6 +116,7 @@ function StripeForm(props) {
 
 StripeForm.propTypes = {
   onSubmit: _propTypes.default.func,
+  disabled: _propTypes.default.bool,
   planSelected: _propTypes.default.string,
   labels: _propTypes.default.shape({
     cardNumber: _propTypes.default.string,
