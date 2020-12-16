@@ -9,3 +9,4 @@ export { default as Dropdown } from './Dropdown';
 export { default as SubscribeModal } from './SubscribeModal';
 export { default as SignupModal } from './SignupModal';
 export { default as EditAccountModal } from './EditAccountModal';
+export { default as EditSubModal } from './EditSubModal';
