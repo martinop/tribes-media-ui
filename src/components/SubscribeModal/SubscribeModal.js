@@ -57,6 +57,9 @@ function SubscribeModal(props) {
 												onClick={() => setPlanSelected(plan.id)}
 												color={color} label={plan.label}
 											/>
+											{plan.discountLabel && (
+												<p className="text-white text-sm mt-1 text-center font-medium">{plan.discountLabel}</p>
+											)}
 										</div>
 									))}
 								</div>

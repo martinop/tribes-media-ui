@@ -44,8 +44,8 @@ export const Main = () => {
 					apiKey="null"
 					onClickLogin={() => {}}
 					plans={[
-						{ id: "price_1HPYVnIElqLJlzgQJYQrggVh", label: "$5.99 / Monthly", discountLabel: "55% discount, 3.99 monthly" },
-						{ id: "price_1HPYVOIElqLJlzgQAkmMYUJS", label: "$29.99 / Yearly" }
+						{ id: "price_1HPYVOIElqLJlzgQAkmMYUJS", label: "$29.99 / yearly", discountLabel: "55% discount, 3.99 monthly" },
+						{ id: "price_1HPYVnIElqLJlzgQJYQrggVh", label: "$5.99 / monthly" },
 					]}
 					color="secondary"
 					logo={

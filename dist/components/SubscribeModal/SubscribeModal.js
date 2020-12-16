@@ -94,7 +94,9 @@ function SubscribeModal(props) {
       },
       color: color,
       label: plan.label
-    }));
+    }), plan.discountLabel && /*#__PURE__*/_react.default.createElement("p", {
+      className: "text-white text-sm mt-1 text-center font-medium"
+    }, plan.discountLabel));
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "mx-auto w-full sm:w-5/6"
   }, /*#__PURE__*/_react.default.createElement(_Checkbox.default, {

@@ -113,7 +113,7 @@ function EditSubModal(props) {
     type: "submit",
     color: color
   }), labels.discount && /*#__PURE__*/_react.default.createElement("p", {
-    className: "text-white text-sm my-1 text-center"
+    className: "text-white text-sm my-1 text-center font-medium"
   }, labels.discount), /*#__PURE__*/_react.default.createElement("button", {
     onClick: onCancel,
     className: "text-center text-white font-bold text-sm mt-4"

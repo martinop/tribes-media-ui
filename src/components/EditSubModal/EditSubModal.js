@@ -60,7 +60,7 @@ function EditSubModal(props) {
 								color={color}
 							/>
 							{labels.discount && (
-								<p className="text-white text-sm my-1 text-center">{labels.discount}</p>
+								<p className="text-white text-sm my-1 text-center font-medium">{labels.discount}</p>
 							)}
 							<button
 								onClick={onCancel}
