@@ -65,13 +65,15 @@ function LoginModal(props) {
 						disabled={!isEmpty(formik.errors) || disabled || !formik.dirty}
 					/>
 				</div>
-				<button
-					type="button"
-					onClick={onClickForgot}
-					className="mt-4 text-white text-center underline text-base self-center"
-				>
-					{forgotLabel}
-				</button>
+				{forgotLabel && (
+					<button
+						type="button"
+						onClick={onClickForgot}
+						className="mt-4 text-white text-center underline text-base self-center"
+					>
+						{forgotLabel}
+					</button>
+				)}
 			</form>
 		</Modal>
 	)

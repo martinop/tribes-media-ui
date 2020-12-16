@@ -87,7 +87,7 @@ function LoginModal(props) {
     type: "submit",
     color: color,
     disabled: !(0, _isEmpty.default)(formik.errors) || disabled || !formik.dirty
-  })), /*#__PURE__*/_react.default.createElement("button", {
+  })), forgotLabel && /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: onClickForgot,
     className: "mt-4 text-white text-center underline text-base self-center"
