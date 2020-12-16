@@ -1,0 +1,15 @@
+.edit-sub-modal {
+	background: linear-gradient(132.08deg, #000000 -28.34%, var(--color-primary) 100%);
+	display: flex;
+	align-items: center;
+}
+
+.edit-sub-modal svg path {
+	fill: white;
+}
+
+.edit-sub-modal h3 {
+	line-height: 24px;
+	letter-spacing: 0.2em;
+	opacity: 0.8;
+}

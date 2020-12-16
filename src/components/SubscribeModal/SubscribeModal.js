@@ -17,6 +17,7 @@ function SubscribeModal(props) {
 		apiKey,
 		onClickLogin,
 		labels,
+		onSubmit,
 	} = props;
 	const [termsAndConditions, setTermsAndConditions] = React.useState(false);
 	const [planSelected, setPlanSelected] = React.useState(null);
@@ -27,10 +28,6 @@ function SubscribeModal(props) {
 			setTermsAndConditions(false);
 			setPlanSelected(null);
 		}, 300)
-	}
-
-	function onSubmit(e) {
-		console.log(e)
 	}
 	return (
 		<Modal
@@ -67,6 +64,7 @@ function SubscribeModal(props) {
 										onChange={() => setTermsAndConditions(!termsAndConditions)}
 										className="mt-4"
 										color={color}
+										id="subscribe-modal-terms"
 										value={termsAndConditions}
 										label={labels.termsAndConditions}
 									/>
@@ -86,6 +84,7 @@ function SubscribeModal(props) {
 							<div className="w-full sm:w-2/3 flex flex-col mt-6">
 								<StripeForm
 									onSubmit={onSubmit}
+									planSelected={planSelected}
 									labels={{
 										cardNumber: labels.cardNumber,
 										cardExpiration: labels.cardExpiration,
@@ -112,12 +111,13 @@ SubscribeModal.propTypes = {
 		title: PropTypes.string,
 		subTitle: PropTypes.string,
 		details: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.object]),
-		confirm: PropTypes.string,
 		termsAndConditions: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 		login: PropTypes.string,
 		cardNumber: PropTypes.string,
 		cardExpiration: PropTypes.string,
 		cardCVC: PropTypes.string,
+		confirm: PropTypes.string,
+
 	}),
 	plans: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, label: PropTypes.string, discountLabel: PropTypes.string })),
 	color: PropTypes.oneOf(["primary", "secondary"]),

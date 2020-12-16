@@ -7,6 +7,7 @@ const Button = ({ color, size, label, disabled, onClick, className, ...props }) 
   return (
     <button
       type="button"
+      disabled={disabled}
       className={['font-poppins button', `button--${size}`, className && className, disabled ? 'disabled' : '', mode].join(' ')}
       {...!disabled && onClick && { onClick }}
       {...props}

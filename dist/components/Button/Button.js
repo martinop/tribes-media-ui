@@ -31,6 +31,7 @@ var Button = function Button(_ref) {
   var mode = "button--".concat(color);
   return /*#__PURE__*/_react.default.createElement("button", _extends({
     type: "button",
+    disabled: disabled,
     className: ['font-poppins button', "button--".concat(size), className && className, disabled ? 'disabled' : '', mode].join(' ')
   }, !disabled && onClick && {
     onClick: onClick

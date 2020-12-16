@@ -5,20 +5,21 @@ import './style.css';
 import Button from '../Button';
 
 function StripeForm(props) {
-	const { onSubmit, labels, stripe } = props;
+	const { onSubmit, labels, stripe, planSelected } = props;
 	const elementClass = "card-form-input text-base text-center p-3";
-
+	const [error, setError] = React.useState('');
 	async function _onSubmit(e) {
 		e.preventDefault();
 		const token = await stripe.createToken();
 		if(token.error){
-      console.log(token.error.message);
+			setError(token.error.message)
 			return 
 		}
-		onSubmit("yay")
+		onSubmit(planSelected, token.token.id)
 	}
 	return (
 		<form onSubmit={_onSubmit} className="w-full stripe-form font-poppins">
+			{error && <p className="text-red-500 mb-4">{error}</p>}
 			<div className="mb-2">
 				<span className="text-xs text-white font-normal">{labels.cardNumber}</span>
 				<CardNumberElement className={elementClass} />
@@ -38,6 +39,7 @@ function StripeForm(props) {
 
 StripeForm.propTypes = {
 	onSubmit: PropTypes.func,
+	planSelected: PropTypes.string,
 	labels: PropTypes.shape({
 		cardNumber: PropTypes.string,
 		cardExpiration: PropTypes.string,

@@ -43,7 +43,8 @@ function SubscribeModal(props) {
       plans = props.plans,
       apiKey = props.apiKey,
       onClickLogin = props.onClickLogin,
-      labels = props.labels;
+      labels = props.labels,
+      onSubmit = props.onSubmit;
 
   var _React$useState = _react.default.useState(false),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -61,10 +62,6 @@ function SubscribeModal(props) {
       setTermsAndConditions(false);
       setPlanSelected(null);
     }, 300);
-  }
-
-  function onSubmit(e) {
-    console.log(e);
   }
 
   return /*#__PURE__*/_react.default.createElement(_Modal.default, {
@@ -105,6 +102,7 @@ function SubscribeModal(props) {
     },
     className: "mt-4",
     color: color,
+    id: "subscribe-modal-terms",
     value: termsAndConditions,
     label: labels.termsAndConditions
   })), /*#__PURE__*/_react.default.createElement("button", {
@@ -115,6 +113,7 @@ function SubscribeModal(props) {
     className: "w-full sm:w-2/3 flex flex-col mt-6"
   }, /*#__PURE__*/_react.default.createElement(_StripeForm.default, {
     onSubmit: onSubmit,
+    planSelected: planSelected,
     labels: {
       cardNumber: labels.cardNumber,
       cardExpiration: labels.cardExpiration,
@@ -134,12 +133,12 @@ SubscribeModal.propTypes = {
     title: _propTypes.default.string,
     subTitle: _propTypes.default.string,
     details: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.node, _propTypes.default.object]),
-    confirm: _propTypes.default.string,
     termsAndConditions: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.node]),
     login: _propTypes.default.string,
     cardNumber: _propTypes.default.string,
     cardExpiration: _propTypes.default.string,
-    cardCVC: _propTypes.default.string
+    cardCVC: _propTypes.default.string,
+    confirm: _propTypes.default.string
   }),
   plans: _propTypes.default.arrayOf(_propTypes.default.shape({
     id: _propTypes.default.string,

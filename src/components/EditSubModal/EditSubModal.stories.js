@@ -1,10 +1,10 @@
 import React from 'react';
 import StripeScriptLoader from 'react-stripe-script-loader'
-import SubscribeModal from './SubscribeModal';
+import EditSubModal from './EditSubModal';
 
 const story = {
-  title: 'Example/SubscribeModal',
-  component: SubscribeModal,
+  title: 'Example/EditSubModal',
+  component: EditSubModal,
 };
 
 export const Main = () => {
@@ -13,41 +13,31 @@ export const Main = () => {
 		<div>
 			<button onClick={() => setOpen(true)}>Open Modal</button>
 			<StripeScriptLoader
-				uniqueId='subscribe-modal'
+				uniqueId='edit-sub-modal'
 				script='https://js.stripe.com/v3/'
 				loader=""
 			>
-				<SubscribeModal
+				<EditSubModal
 					open={open}
 					onClose={() => setOpen(false)}
-					onSubmit={console.log}
+					onCancel={console.log}
+					apiKey="null"
 					labels={{
-						title: "Claim for myst",
-						subTitle: "START YOUR SUBSCRIPTION",
-						login: "Already a member? Log in",
+						title: "STEP INTO THE UNKNOWN",
+						save: "Save",
+						subscription: "Subscription Monthly",
+						subscriptionBtn: "UPDATE US$47.99 / yearly",
+						discount: "55% discount, 3.99 monthly",
+						cancel: 'You may always cancel your subscription',
 						cardNumber: "Card Number",
 						cardCVC: "CVC",
 						cardExpiration: "Expiration",
 						confirm: "Confirm",
-						details: (
-							<>
-								Start with a 7 days free trial.<br/>
-								Cancel anytime.
-							</>
-						),
-						termsAndConditions: (
-							<>
-								I agree the <a href="/">Terms and conditions</a> & <a href="/">Privacy Policy</a>
-							</>
-						)
 					}}
-					apiKey="null"
-					onClickLogin={() => {}}
-					plans={[
-						{ id: "price_1HPYVnIElqLJlzgQJYQrggVh", label: "$5.99 / Monthly", discountLabel: "55% discount, 3.99 monthly" },
-						{ id: "price_1HPYVOIElqLJlzgQAkmMYUJS", label: "$29.99 / Yearly" }
-					]}
-					color="secondary"
+					planSelected=""
+					list={["Many content per month", "Watch on any device", "Unlimited entertainment"]}
+					language="en"
+					onSubmit={values => alert(JSON.stringify(values, null, 2))}
 					logo={
 						<svg width="216" height="50" viewBox="0 0 216 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M59.6846 15.6811L49.7964 0.455078H33V27.4856H44.92V10.6628L56.1627 27.4856H62.3936L73.7041 10.6628V27.4856H85.8273V0.455078H69.6405L59.6846 15.6811Z" fill="white"/>
