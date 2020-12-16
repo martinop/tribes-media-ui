@@ -18,7 +18,7 @@ export const Main = () => {
 				labels={{
 					title: "STEP INTO THE UNKNOWN",
 					save: "Save",
-					subscription: "Subscription Monthly",
+					subscription: null,
 					email: "Email Address",
 					password: "Password"
 				}}

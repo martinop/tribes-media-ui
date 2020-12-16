@@ -7,6 +7,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _classnames = _interopRequireDefault(require("classnames"));
+
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _isEmpty = _interopRequireDefault(require("lodash/isEmpty"));
@@ -53,8 +55,8 @@ function EditAccountModal(props) {
   }, /*#__PURE__*/_react.default.createElement("div", null, logo), /*#__PURE__*/_react.default.createElement("h3", {
     className: "text-sm uppercase text-center text-white font-bold mt-6 mb-8"
   }, labels.title), /*#__PURE__*/_react.default.createElement("h1", {
-    className: "font-bold uppercase text-white text-2xl"
-  }, language === "es" ? "Mi cuenta" : "My Account"), /*#__PURE__*/_react.default.createElement("div", {
+    className: (0, _classnames.default)("font-bold uppercase text-white text-2xl", !labels.subscription && 'mb-8')
+  }, language === "es" ? "Mi cuenta" : "My Account"), labels.subscription && /*#__PURE__*/_react.default.createElement("div", {
     className: "text-white px-6 py-2 rounded-full border border-white mt-2 mb-8 border-opacity-25"
   }, /*#__PURE__*/_react.default.createElement("span", null, labels.subscription)), /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: formik.handleSubmit,

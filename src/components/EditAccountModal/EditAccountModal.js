@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { useFormik } from 'formik';
@@ -31,10 +32,12 @@ function EditAccountModal(props) {
 				{logo}
 			</div>
 			<h3 className="text-sm uppercase text-center text-white font-bold mt-6 mb-8">{labels.title}</h3>
-			<h1 className="font-bold uppercase text-white text-2xl">{language === "es" ? "Mi cuenta" : "My Account"}</h1>
-			<div className="text-white px-6 py-2 rounded-full border border-white mt-2 mb-8 border-opacity-25">
-				<span>{labels.subscription}</span>
-			</div>
+			<h1 className={cx("font-bold uppercase text-white text-2xl", !labels.subscription && 'mb-8')}>{language === "es" ? "Mi cuenta" : "My Account"}</h1>
+			{labels.subscription && (
+				<div className="text-white px-6 py-2 rounded-full border border-white mt-2 mb-8 border-opacity-25">
+					<span>{labels.subscription}</span>
+				</div>
+			)}
 			<form onSubmit={formik.handleSubmit} className="w-full sm:w-3/5 flex flex-col">
 				<div className="flex flex-col w-full"> 
 					<span className="text-white text-xs uppercase">{labels.email}</span>
