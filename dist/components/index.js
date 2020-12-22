@@ -75,6 +75,12 @@ Object.defineProperty(exports, "EditSubModal", {
     return _EditSubModal.default;
   }
 });
+Object.defineProperty(exports, "BasicModal", {
+  enumerable: true,
+  get: function get() {
+    return _BasicModal.default;
+  }
+});
 
 var _CastMemberDetails = _interopRequireDefault(require("./CastMemberDetails"));
 
@@ -99,5 +105,7 @@ var _SignupModal = _interopRequireDefault(require("./SignupModal"));
 var _EditAccountModal = _interopRequireDefault(require("./EditAccountModal"));
 
 var _EditSubModal = _interopRequireDefault(require("./EditSubModal"));
+
+var _BasicModal = _interopRequireDefault(require("./BasicModal"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
