@@ -38,7 +38,7 @@ function EditSubModal(props) {
 								<span>{labels.subscription}</span>
 							</div>
 							<div className="w-full sm:w-2/4 sm:mx-auto">
-								<ul className="mb-16">
+								<ul className={cx(labels.unavailable ? "mb-8" : "mb-16")}>
 									{list.map((item, index) => (
 										<li className={cx("flex items-center", index > 0 && "mt-3")} key={`edit-sub-list-detail-${index}`}>
 											<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,15 +52,21 @@ function EditSubModal(props) {
 									))}
 								</ul>
 							</div>
-							<Button
-								label={labels.subscriptionBtn}
-								onClick={() => setShowForm(true)}
-								className="w-full sm:w-4/5 md:mx-auto"
-								type="submit"
-								color={color}
-							/>
-							{labels.discount && (
-								<p className="text-white text-sm my-1 text-center font-medium">{labels.discount}</p>
+							{labels.unavailable ? (
+								<p className="text-white mb-4">{labels.unavailable}</p>
+							) : (
+								<>
+									<Button
+										label={labels.subscriptionBtn}
+										onClick={() => setShowForm(true)}
+										className="w-full sm:w-4/5 md:mx-auto"
+										type="submit"
+										color={color}
+									/>
+									{labels.discount && (
+										<p className="text-white text-sm my-1 text-center font-medium">{labels.discount}</p>
+									)}
+								</>
 							)}
 							<button
 								onClick={onCancel}

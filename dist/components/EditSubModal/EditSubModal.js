@@ -78,7 +78,7 @@ function EditSubModal(props) {
   }, /*#__PURE__*/_react.default.createElement("span", null, labels.subscription)), /*#__PURE__*/_react.default.createElement("div", {
     className: "w-full sm:w-2/4 sm:mx-auto"
   }, /*#__PURE__*/_react.default.createElement("ul", {
-    className: "mb-16"
+    className: (0, _classnames.default)(labels.unavailable ? "mb-8" : "mb-16")
   }, list.map(function (item, index) {
     return /*#__PURE__*/_react.default.createElement("li", {
       className: (0, _classnames.default)("flex items-center", index > 0 && "mt-3"),
@@ -104,7 +104,9 @@ function EditSubModal(props) {
     })), /*#__PURE__*/_react.default.createElement("span", {
       className: "ml-3 text-white text-sm"
     }, item));
-  }))), /*#__PURE__*/_react.default.createElement(_Button.default, {
+  }))), labels.unavailable ? /*#__PURE__*/_react.default.createElement("p", {
+    className: "text-white mb-4"
+  }, labels.unavailable) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Button.default, {
     label: labels.subscriptionBtn,
     onClick: function onClick() {
       return setShowForm(true);
@@ -114,7 +116,7 @@ function EditSubModal(props) {
     color: color
   }), labels.discount && /*#__PURE__*/_react.default.createElement("p", {
     className: "text-white text-sm my-1 text-center font-medium"
-  }, labels.discount), /*#__PURE__*/_react.default.createElement("button", {
+  }, labels.discount)), /*#__PURE__*/_react.default.createElement("button", {
     onClick: onCancel,
     className: "text-center text-white font-bold text-sm mt-4"
   }, labels.cancel)), showForm && /*#__PURE__*/_react.default.createElement(_reactStripeElements.Elements, null, /*#__PURE__*/_react.default.createElement("div", {

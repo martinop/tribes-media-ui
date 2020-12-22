@@ -33,6 +33,7 @@ export const Main = () => {
 						cardCVC: "CVC",
 						cardExpiration: "Expiration",
 						confirm: "Confirm",
+						unavailable: "Ya posee suscripción. Disfrute!"
 					}}
 					planSelected=""
 					list={["Many content per month", "Watch on any device", "Unlimited entertainment"]}
