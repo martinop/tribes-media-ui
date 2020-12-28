@@ -45,7 +45,8 @@ function SubscribeModal(props) {
       onClickLogin = props.onClickLogin,
       disabled = props.disabled,
       labels = props.labels,
-      onSubmit = props.onSubmit;
+      onSubmit = props.onSubmit,
+      onProcessStarted = props.onProcessStarted;
 
   var _React$useState = _react.default.useState(false),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -63,6 +64,11 @@ function SubscribeModal(props) {
       setTermsAndConditions(false);
       setPlanSelected(null);
     }, 300);
+  }
+
+  function onChangePlan(planId) {
+    setPlanSelected(planId);
+    onProcessStarted();
   }
 
   return /*#__PURE__*/_react.default.createElement(_Modal.default, {
@@ -90,7 +96,7 @@ function SubscribeModal(props) {
       className: "w-full",
       disabled: !termsAndConditions,
       onClick: function onClick() {
-        return setPlanSelected(plan.id);
+        return onChangePlan(plan.id);
       },
       color: color,
       label: plan.label
@@ -145,6 +151,7 @@ SubscribeModal.propTypes = {
     cardCVC: _propTypes.default.string,
     confirm: _propTypes.default.string
   }),
+  onProcessStarted: _propTypes.default.func,
   plans: _propTypes.default.arrayOf(_propTypes.default.shape({
     id: _propTypes.default.string,
     label: _propTypes.default.string,

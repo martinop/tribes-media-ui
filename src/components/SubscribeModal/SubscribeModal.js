@@ -19,6 +19,7 @@ function SubscribeModal(props) {
 		disabled,
 		labels,
 		onSubmit,
+		onProcessStarted,
 	} = props;
 	const [termsAndConditions, setTermsAndConditions] = React.useState(false);
 	const [planSelected, setPlanSelected] = React.useState(null);
@@ -29,6 +30,11 @@ function SubscribeModal(props) {
 			setTermsAndConditions(false);
 			setPlanSelected(null);
 		}, 300)
+	}
+
+	function onChangePlan(planId) {
+		setPlanSelected(planId);
+		onProcessStarted()
 	}
 	return (
 		<Modal
@@ -54,7 +60,7 @@ function SubscribeModal(props) {
 											<Button
 												className="w-full"
 												disabled={!termsAndConditions}
-												onClick={() => setPlanSelected(plan.id)}
+												onClick={() => onChangePlan(plan.id)}
 												color={color} label={plan.label}
 											/>
 											{plan.discountLabel && (
@@ -123,8 +129,8 @@ SubscribeModal.propTypes = {
 		cardExpiration: PropTypes.string,
 		cardCVC: PropTypes.string,
 		confirm: PropTypes.string,
-
 	}),
+	onProcessStarted: PropTypes.func,
 	plans: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, label: PropTypes.string, discountLabel: PropTypes.string })),
 	color: PropTypes.oneOf(["primary", "secondary"]),
 }
