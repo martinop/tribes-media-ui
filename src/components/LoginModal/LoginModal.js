@@ -9,7 +9,7 @@ import Button from '../Button';
 import { validate } from './utils';
 
 function LoginModal(props) {
-	const { open, onClose, loginLabel, color, logo, title, disabled, onClickForgot, onSubmit, language, forgotLabel } = props;
+	const { open, onClose, signupLabel, loginLabel, onClickSignup, color, logo, title, disabled, onClickForgot, onSubmit, language, forgotLabel } = props;
 	const formik = useFormik({
 		initialValues: {
 			email: '',
@@ -25,12 +25,12 @@ function LoginModal(props) {
 			open={open}
 			id="login-modal"
 			onClose={onClose}
-			className="login-modal pt-20"
+			className="login-modal pt-12"
 		>
 			<div>
 				{logo}
 			</div>
-			<h3 className="text-sm uppercase text-center text-white font-bold mt-6 mb-16">{title}</h3>
+			<h3 className="text-sm uppercase text-center text-white font-bold mt-6 mb-12">{title}</h3>
 			<form onSubmit={formik.handleSubmit} className="w-full sm:w-3/5 flex flex-col">
 				<div className="flex flex-col w-full"> 
 					<Input
@@ -69,9 +69,18 @@ function LoginModal(props) {
 					<button
 						type="button"
 						onClick={onClickForgot}
-						className="mt-4 text-white text-center underline text-base self-center"
+						className="mt-6 text-white text-center underline text-sm self-center"
 					>
 						{forgotLabel}
+					</button>
+				)}
+				{signupLabel && (
+					<button
+						type="button"
+						onClick={onClickSignup}
+						className="mt-10 text-white text-center underline text-sm self-center"
+					>
+						{signupLabel}
 					</button>
 				)}
 			</form>
@@ -82,12 +91,14 @@ function LoginModal(props) {
 LoginModal.propTypes = {
 	open: PropTypes.bool,
 	loginLabel: PropTypes.string,
+	signupLabel: PropTypes.string,
 	logo: PropTypes.element,
 	onClickForgot: PropTypes.func,
 	disabled: PropTypes.bool,
 	onSubmit: PropTypes.func,
 	color: PropTypes.oneOf(["primary", "secondary"]),
 	onClose: PropTypes.func,
+	onClickSignup: PropTypes.func,
 	language: PropTypes.oneOf(["en", "es"])
 }
 

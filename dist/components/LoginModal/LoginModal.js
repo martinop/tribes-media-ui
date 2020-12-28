@@ -28,7 +28,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function LoginModal(props) {
   var open = props.open,
       onClose = props.onClose,
+      signupLabel = props.signupLabel,
       loginLabel = props.loginLabel,
+      onClickSignup = props.onClickSignup,
       color = props.color,
       logo = props.logo,
       title = props.title,
@@ -51,9 +53,9 @@ function LoginModal(props) {
     open: open,
     id: "login-modal",
     onClose: onClose,
-    className: "login-modal pt-20"
+    className: "login-modal pt-12"
   }, /*#__PURE__*/_react.default.createElement("div", null, logo), /*#__PURE__*/_react.default.createElement("h3", {
-    className: "text-sm uppercase text-center text-white font-bold mt-6 mb-16"
+    className: "text-sm uppercase text-center text-white font-bold mt-6 mb-12"
   }, title), /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: formik.handleSubmit,
     className: "w-full sm:w-3/5 flex flex-col"
@@ -90,19 +92,25 @@ function LoginModal(props) {
   })), forgotLabel && /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: onClickForgot,
-    className: "mt-4 text-white text-center underline text-base self-center"
-  }, forgotLabel)));
+    className: "mt-6 text-white text-center underline text-sm self-center"
+  }, forgotLabel), signupLabel && /*#__PURE__*/_react.default.createElement("button", {
+    type: "button",
+    onClick: onClickSignup,
+    className: "mt-10 text-white text-center underline text-sm self-center"
+  }, signupLabel)));
 }
 
 LoginModal.propTypes = {
   open: _propTypes.default.bool,
   loginLabel: _propTypes.default.string,
+  signupLabel: _propTypes.default.string,
   logo: _propTypes.default.element,
   onClickForgot: _propTypes.default.func,
   disabled: _propTypes.default.bool,
   onSubmit: _propTypes.default.func,
   color: _propTypes.default.oneOf(["primary", "secondary"]),
   onClose: _propTypes.default.func,
+  onClickSignup: _propTypes.default.func,
   language: _propTypes.default.oneOf(["en", "es"])
 };
 LoginModal.defaultProps = {

@@ -18,6 +18,8 @@ export const Main = () => {
 				loginLabel="Log In"
 				language="en"
 				forgotLabel="Forgot Password?"
+				signupLabel="Not a user? Try for free"
+				onClickSignup={console.log}
 				onSubmit={values => alert(JSON.stringify(values, null, 2))}
 				logo={
 					<svg width="216" height="50" viewBox="0 0 216 50" fill="none" xmlns="http://www.w3.org/2000/svg">
