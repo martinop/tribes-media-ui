@@ -49,6 +49,7 @@ function OnboardingModal(props) {
       onClose = props.onClose,
       ctaText = props.ctaText,
       logo = props.logo,
+      afterChange = props.afterChange,
       slides = props.slides;
   return /*#__PURE__*/_react.default.createElement(_Modal.default, {
     open: open,
@@ -62,6 +63,7 @@ function OnboardingModal(props) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    afterChange: afterChange,
     nextArrow: /*#__PURE__*/_react.default.createElement(DummyDiv, null, /*#__PURE__*/_react.default.createElement("svg", {
       width: "12",
       height: "20",
@@ -112,7 +114,8 @@ OnboardingModal.propTypes = {
   })),
   logo: _propTypes.default.element,
   onClose: _propTypes.default.func,
-  ctaText: _propTypes.default.string
+  ctaText: _propTypes.default.string,
+  afterChange: _propTypes.default.func
 };
 var _default = OnboardingModal;
 exports.default = _default;

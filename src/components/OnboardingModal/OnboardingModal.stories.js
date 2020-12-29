@@ -14,6 +14,7 @@ export const Main = () => {
 			<OnboardingModal
 				open={open}
 				ctaText="Starts Now"
+				afterChange={console.log}
 				logo={
 					<svg width="216" height="50" viewBox="0 0 216 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M59.6846 15.6811L49.7964 0.455078H33V27.4856H44.92V10.6628L56.1627 27.4856H62.3936L73.7041 10.6628V27.4856H85.8273V0.455078H69.6405L59.6846 15.6811Z" fill="white"/>

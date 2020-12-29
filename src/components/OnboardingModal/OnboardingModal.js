@@ -24,7 +24,7 @@ const DummyDiv = ({
 }
 
 function OnboardingModal(props) {
-	const { open, onClose, ctaText, logo, slides } = props;
+	const { open, onClose, ctaText, logo, afterChange, slides } = props;
 	return (
 		<Modal
 			open={open}
@@ -39,6 +39,7 @@ function OnboardingModal(props) {
 				speed={500}
 				slidesToShow={1}
 				slidesToScroll={1}
+				afterChange={afterChange}
 				nextArrow={
 					<DummyDiv>
 						<svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,6 +81,7 @@ OnboardingModal.propTypes = {
 	logo: PropTypes.element,
 	onClose: PropTypes.func,
 	ctaText: PropTypes.string,
+	afterChange: PropTypes.func,
 }
 
 export default OnboardingModal;
