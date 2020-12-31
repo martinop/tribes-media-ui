@@ -85,7 +85,7 @@ function SubscribeModal(props) {
   }, labels.subTitle), /*#__PURE__*/_react.default.createElement("div", {
     className: "text-center text-white text-sm leading-7 my-2"
   }, labels.details), /*#__PURE__*/_react.default.createElement("div", {
-    className: "w-full sm:w-2/3 flex flex-col"
+    className: "w-full sm:w-2/3"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "flex flex-col w-full"
   }, plans.map(function (plan) {
@@ -117,7 +117,7 @@ function SubscribeModal(props) {
   })), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: onClickLogin,
-    className: "mt-10 text-white text-center underline text-base self-center"
+    className: "mx-auto block mt-10 text-white text-center underline text-base self-center"
   }, labels.login))), planSelected && /*#__PURE__*/_react.default.createElement(_reactStripeElements.Elements, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "w-full sm:w-2/3 flex flex-col mt-6"
   }, /*#__PURE__*/_react.default.createElement(_StripeForm.default, {

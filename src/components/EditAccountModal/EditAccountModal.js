@@ -39,7 +39,7 @@ function EditAccountModal(props) {
 					<span>{labels.subscription}</span>
 				</div>
 			)}
-			<form onSubmit={formik.handleSubmit} className="w-full sm:w-3/5 flex flex-col">
+			<form onSubmit={formik.handleSubmit} className="w-full sm:w-3/5">
 				<div className="flex flex-col w-full"> 
 					<span className="text-white text-xs uppercase">{labels.email}</span>
 					<Input

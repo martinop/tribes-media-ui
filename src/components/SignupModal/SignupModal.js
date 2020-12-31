@@ -34,7 +34,7 @@ function SignupModal(props) {
 				{logo}
 			</div>
 			<h3 className="text-sm uppercase text-center text-white font-bold mt-6 mb-16">{labels.title}</h3>
-			<form onSubmit={formik.handleSubmit} className="w-full sm:w-3/5 flex flex-col">
+			<form onSubmit={formik.handleSubmit} className="w-full sm:w-3/5">
 				<div className="flex flex-col w-full"> 
 					<Input
 						placeholder={language === "en" ? "Email Address" : "Correo Electronico"}

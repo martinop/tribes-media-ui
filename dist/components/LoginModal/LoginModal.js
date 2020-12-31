@@ -58,7 +58,7 @@ function LoginModal(props) {
     className: "text-sm uppercase text-center text-white font-bold mt-6 mb-12"
   }, title), /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: formik.handleSubmit,
-    className: "w-full sm:w-3/5 flex flex-col"
+    className: "w-full sm:w-3/5"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "flex flex-col w-full"
   }, /*#__PURE__*/_react.default.createElement(_Input.default, {
@@ -92,11 +92,11 @@ function LoginModal(props) {
   })), forgotLabel && /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: onClickForgot,
-    className: "mt-6 text-white text-center underline text-sm self-center"
+    className: "mx-auto block mt-6 text-white text-center underline text-sm self-center"
   }, forgotLabel), signupLabel && /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: onClickSignup,
-    className: "mt-10 text-white text-center underline text-sm self-center"
+    className: "mx-auto block mt-10 text-white text-center underline text-sm self-center"
   }, signupLabel)));
 }
 

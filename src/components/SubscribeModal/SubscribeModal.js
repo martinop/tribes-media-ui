@@ -53,7 +53,7 @@ function SubscribeModal(props) {
 							<div className="text-center text-white text-sm leading-7 my-2">
 								{labels.details}
 							</div>
-							<div className="w-full sm:w-2/3 flex flex-col">
+							<div className="w-full sm:w-2/3">
 								<div className="flex flex-col w-full"> 
 									{plans.map(plan => (
 										<div className="mt-8" key={`plan-${plan.id}`}>
@@ -82,7 +82,7 @@ function SubscribeModal(props) {
 								<button
 									type="button"
 									onClick={onClickLogin}
-									className="mt-10 text-white text-center underline text-base self-center"
+									className="mx-auto block mt-10 text-white text-center underline text-base self-center"
 								>
 									{labels.login}
 								</button>

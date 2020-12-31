@@ -57,7 +57,7 @@ function SignupModal(props) {
     className: "text-sm uppercase text-center text-white font-bold mt-6 mb-16"
   }, labels.title), /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: formik.handleSubmit,
-    className: "w-full sm:w-3/5 flex flex-col"
+    className: "w-full sm:w-3/5"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "flex flex-col w-full"
   }, /*#__PURE__*/_react.default.createElement(_Input.default, {

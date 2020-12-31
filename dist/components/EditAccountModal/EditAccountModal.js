@@ -61,7 +61,7 @@ function EditAccountModal(props) {
     className: "text-white px-6 py-2 rounded-full border border-white mt-2 mb-8 border-opacity-25"
   }, /*#__PURE__*/_react.default.createElement("span", null, labels.subscription)), /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: formik.handleSubmit,
-    className: "w-full sm:w-3/5 flex flex-col"
+    className: "w-full sm:w-3/5"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "flex flex-col w-full"
   }, /*#__PURE__*/_react.default.createElement("span", {
