@@ -10,7 +10,7 @@ import './styles.css'
 const isLightColor = getIsLightColor()
 
 function AudioPlayer(props) {
-	const { open, onClose, url, image, title, subTitle } = props;
+	const { open, onClose, url, color, image, title, subTitle } = props;
 	const prevOpen = usePrevious(open);
 	const [show, setShow] = React.useState(open);
 	const progressRef = React.createRef();
@@ -83,7 +83,7 @@ function AudioPlayer(props) {
 
 	return (
 		<motion.div
-			className={cx("tribes-audio-player-container font-poppins", isLightColor ? "text-black" : "text-white")}
+			className={cx("tribes-audio-player-container font-poppins", color === "black" ? "text-black" : "text-white")}
 			variants={bodyAnimation}
 			transition={{ duration: 0.3 }}
 			initial="close"

@@ -41,6 +41,7 @@ function AudioPlayer(props) {
   var open = props.open,
       onClose = props.onClose,
       url = props.url,
+      color = props.color,
       image = props.image,
       title = props.title,
       subTitle = props.subTitle;
@@ -125,7 +126,7 @@ function AudioPlayer(props) {
 
   if (!show) return null;
   return /*#__PURE__*/_react.default.createElement(_framerMotion.motion.div, {
-    className: (0, _classnames.default)("tribes-audio-player-container font-poppins", isLightColor ? "text-black" : "text-white"),
+    className: (0, _classnames.default)("tribes-audio-player-container font-poppins", color === "black" ? "text-black" : "text-white"),
     variants: _utils.bodyAnimation,
     transition: {
       duration: 0.3
