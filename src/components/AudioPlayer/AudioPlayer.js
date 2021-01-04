@@ -41,10 +41,14 @@ function AudioPlayer(props) {
 
 	React.useEffect(() => {
 		if(show) {
+
 			const hls = new Hls({});
+			audioRef.current.src = url;
+			audioRef.current.currentTime = 0;
 			hls.loadSource(url);
 			hls.attachMedia(audioRef.current);
-			audioRef.current.currentTime = 0;
+		
+			audioRef.current.load();
 		}
 	}, [audioRef, url, show])
 
@@ -79,7 +83,7 @@ function AudioPlayer(props) {
 
 	return (
 		<motion.div
-			className={cx("tribes-audio-player-container font-poppins z-10", isLightColor ? "text-black" : "text-white")}
+			className={cx("tribes-audio-player-container font-poppins", isLightColor ? "text-black" : "text-white")}
 			variants={bodyAnimation}
 			transition={{ duration: 0.3 }}
 			initial="close"
