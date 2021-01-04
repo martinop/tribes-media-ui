@@ -68,7 +68,7 @@ function SubscribeModal(props) {
 
   function onChangePlan(planId) {
     setPlanSelected(planId);
-    onProcessStarted();
+    onProcessStarted(planId);
   }
 
   return /*#__PURE__*/_react.default.createElement(_Modal.default, {

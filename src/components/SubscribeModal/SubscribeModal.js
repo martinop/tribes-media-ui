@@ -34,7 +34,7 @@ function SubscribeModal(props) {
 
 	function onChangePlan(planId) {
 		setPlanSelected(planId);
-		onProcessStarted()
+		onProcessStarted(planId)
 	}
 	return (
 		<Modal
