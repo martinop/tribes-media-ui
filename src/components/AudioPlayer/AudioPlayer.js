@@ -79,7 +79,7 @@ function AudioPlayer(props) {
 
 	return (
 		<motion.div
-			className={cx("tribes-audio-player-container font-poppins z-10", isLightColor ? "text-black" : "textt-white")}
+			className={cx("tribes-audio-player-container font-poppins z-10", isLightColor ? "text-black" : "text-white")}
 			variants={bodyAnimation}
 			transition={{ duration: 0.3 }}
 			initial="close"

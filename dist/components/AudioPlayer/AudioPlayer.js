@@ -123,7 +123,7 @@ function AudioPlayer(props) {
 
   if (!show) return null;
   return /*#__PURE__*/_react.default.createElement(_framerMotion.motion.div, {
-    className: (0, _classnames.default)("tribes-audio-player-container font-poppins z-10", isLightColor ? "text-black" : "textt-white"),
+    className: (0, _classnames.default)("tribes-audio-player-container font-poppins z-10", isLightColor ? "text-black" : "text-white"),
     variants: _utils.bodyAnimation,
     transition: {
       duration: 0.3
