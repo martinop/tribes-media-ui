@@ -139,7 +139,7 @@ function AudioPlayer(props) {
     className: "flex justify-between items-center flex-1 h-full px-2 sm:px-0"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "flex text-sm sm:text-base"
-  }, /*#__PURE__*/_react.default.createElement("img", {
+  }, !!image && /*#__PURE__*/_react.default.createElement("img", {
     src: image,
     alt: "".concat(title, " - ").concat(subTitle),
     className: "h-12 sm:h-16 object-cover mr-2 sm:mr-4"

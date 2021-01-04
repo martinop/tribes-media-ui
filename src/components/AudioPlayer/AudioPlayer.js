@@ -92,7 +92,9 @@ function AudioPlayer(props) {
 			<div className="tribes-audio-player sm:px-4">
 				<div className="flex justify-between items-center flex-1 h-full px-2 sm:px-0">
 					<div className="flex text-sm sm:text-base">
-						<img src={image} alt={`${title} - ${subTitle}`} className="h-12 sm:h-16 object-cover mr-2 sm:mr-4" />
+						{!!image && (
+							<img src={image} alt={`${title} - ${subTitle}`} className="h-12 sm:h-16 object-cover mr-2 sm:mr-4" />
+						)}
 						<div className="flex flex-col justify-center">
 							<span>{title}</span>
 							<span className="font-bold leading-tight">{subTitle}</span>
