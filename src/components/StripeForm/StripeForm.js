@@ -30,14 +30,12 @@ function StripeForm(props) {
 		}
 	}
 
-	React.useEffect(() => {
-		if(!!success && !!_error) {
-			setError('');
-		}
-	}, [_error, success]);
 
 	return (
 		<form onSubmit={_onSubmit} className="w-full stripe-form font-poppins">
+			{_error && (
+				<p className="text-red-600 mb-2 text-sm font-medium">{_error}</p>
+			)}
 			<div className="mb-2">
 				<span className="text-xs text-white font-normal">{labels.cardNumber}</span>
 				<CardNumberElement className={elementClass} />
@@ -54,16 +52,15 @@ function StripeForm(props) {
 				<div className="mt-2">
 					<span className="text-xs text-white font-normal">{labels.coupon}</span>
 					<input
-						className={cx("block", elementClass)}
+						className={cx("block coupon-input", elementClass)}
 						onChange={onChangeCoupon}
 						placeholder={labels.coupon}
 						value={couponText}
 					/>
 				</div>
 			)}
-			{(!!error || !!_error) && <p className="text-red-600 mt-4 text-sm font-medium">{error || _error}</p>}
-			{success && (
-				<p className="text-white mt-4 text-sm font-medium">{success}</p>
+			{(!!error || !!success) && (
+				<p className="text-white mt-1 text-sm font-medium">{success || error || _error}</p>
 			)}
 			<Button disabled={disabled} className="w-full mt-10" label={labels.confirm} type={undefined} />
 		</form>

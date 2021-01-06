@@ -111,16 +111,12 @@ function StripeForm(props) {
     }
   }
 
-  _react.default.useEffect(function () {
-    if (!!success && !!_error) {
-      setError('');
-    }
-  }, [_error, success]);
-
   return /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: _onSubmit,
     className: "w-full stripe-form font-poppins"
-  }, /*#__PURE__*/_react.default.createElement("div", {
+  }, _error && /*#__PURE__*/_react.default.createElement("p", {
+    className: "text-red-600 mb-2 text-sm font-medium"
+  }, _error), /*#__PURE__*/_react.default.createElement("div", {
     className: "mb-2"
   }, /*#__PURE__*/_react.default.createElement("span", {
     className: "text-xs text-white font-normal"
@@ -141,15 +137,13 @@ function StripeForm(props) {
   }, /*#__PURE__*/_react.default.createElement("span", {
     className: "text-xs text-white font-normal"
   }, labels.coupon), /*#__PURE__*/_react.default.createElement("input", {
-    className: (0, _classnames.default)("block", elementClass),
+    className: (0, _classnames.default)("block coupon-input", elementClass),
     onChange: onChangeCoupon,
     placeholder: labels.coupon,
     value: couponText
-  })), (!!error || !!_error) && /*#__PURE__*/_react.default.createElement("p", {
-    className: "text-red-600 mt-4 text-sm font-medium"
-  }, error || _error), success && /*#__PURE__*/_react.default.createElement("p", {
-    className: "text-white mt-4 text-sm font-medium"
-  }, success), /*#__PURE__*/_react.default.createElement(_Button.default, {
+  })), (!!error || !!success) && /*#__PURE__*/_react.default.createElement("p", {
+    className: "text-white mt-1 text-sm font-medium"
+  }, success || error || _error), /*#__PURE__*/_react.default.createElement(_Button.default, {
     disabled: disabled,
     className: "w-full mt-10",
     label: labels.confirm,
