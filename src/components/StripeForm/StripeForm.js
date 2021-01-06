@@ -61,9 +61,9 @@ function StripeForm(props) {
 					/>
 				</div>
 			)}
-			{(!!error || !!_error) && <p className="text-red-500 mt-4">{error || _error}</p>}
+			{(!!error || !!_error) && <p className="text-red-600 mt-4 text-sm font-medium">{error || _error}</p>}
 			{success && (
-				<p className="text-white mt-4">{success}</p>
+				<p className="text-white mt-4 text-sm font-medium">{success}</p>
 			)}
 			<Button disabled={disabled} className="w-full mt-10" label={labels.confirm} type={undefined} />
 		</form>

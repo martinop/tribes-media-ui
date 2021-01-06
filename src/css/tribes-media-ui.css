@@ -990,10 +990,10 @@ video {
   color: rgba(254, 215, 215, var(--text-opacity));
 }
 
-.text-red-500{
+.text-red-600{
   --text-opacity: 1;
-  color: #f56565;
-  color: rgba(245, 101, 101, var(--text-opacity));
+  color: #e53e3e;
+  color: rgba(229, 62, 62, var(--text-opacity));
 }
 
 .text-primary{

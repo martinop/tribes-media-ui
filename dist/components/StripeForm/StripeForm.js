@@ -146,9 +146,9 @@ function StripeForm(props) {
     placeholder: labels.coupon,
     value: couponText
   })), (!!error || !!_error) && /*#__PURE__*/_react.default.createElement("p", {
-    className: "text-red-500 mt-4"
+    className: "text-red-600 mt-4 text-sm font-medium"
   }, error || _error), success && /*#__PURE__*/_react.default.createElement("p", {
-    className: "text-white mt-4"
+    className: "text-white mt-4 text-sm font-medium"
   }, success), /*#__PURE__*/_react.default.createElement(_Button.default, {
     disabled: disabled,
     className: "w-full mt-10",
