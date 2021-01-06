@@ -9,6 +9,8 @@ const story = {
 
 export const Main = () => {
 	const [open, setOpen] = React.useState(false);
+	const [couponError, setCouponError] = React.useState("");
+	const [couponSuccess, setCouponSucces] = React.useState("");
 	return (
 		<div>
 			<button onClick={() => setOpen(true)}>Open Modal</button>
@@ -21,6 +23,10 @@ export const Main = () => {
 					open={open}
 					onClose={() => setOpen(false)}
 					onSubmit={console.log}
+					validateCoupon={e => e.toLowerCase() === "annualpromo" ? setCouponSucces('Success Coupon') : setCouponError("Coupon Error")}
+					onProcessStarted={console.log}
+					error={couponError}
+					success={couponSuccess}
 					labels={{
 						title: "Claim for myst",
 						subTitle: "START YOUR SUBSCRIPTION",
@@ -29,6 +35,7 @@ export const Main = () => {
 						cardCVC: "CVC",
 						cardExpiration: "Expiration",
 						confirm: "Confirm",
+						coupon: "Coupon",
 						details: (
 							<>
 								Start with a 7 days free trial.<br/>
@@ -44,7 +51,7 @@ export const Main = () => {
 					apiKey="null"
 					onClickLogin={() => {}}
 					plans={[
-						{ id: "price_1HPYVOIElqLJlzgQAkmMYUJS", label: "$29.99 / yearly", discountLabel: "55% discount, 3.99 monthly" },
+						{ id: "price_1HPYVOIElqLJlzgQAkmMYUJS", hasCoupon: true, label: "$29.99 / yearly", discountLabel: "55% discount, 3.99 monthly" },
 						{ id: "price_1HPYVnIElqLJlzgQJYQrggVh", label: "$5.99 / monthly" },
 					]}
 					color="secondary"

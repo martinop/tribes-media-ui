@@ -16,9 +16,12 @@ function SubscribeModal(props) {
 		plans,
 		apiKey,
 		onClickLogin,
+		success,
 		disabled,
 		labels,
 		onSubmit,
+		error,
+		validateCoupon,
 		onProcessStarted,
 	} = props;
 	const [termsAndConditions, setTermsAndConditions] = React.useState(false);
@@ -96,11 +99,16 @@ function SubscribeModal(props) {
 									onSubmit={onSubmit}
 									disabled={disabled}
 									planSelected={planSelected}
+									hasCoupon={plans.some(plan => plan.id === planSelected && plan.hasCoupon)}
+									validateCoupon={validateCoupon}
+									error={error}
+									success={success}
 									labels={{
 										cardNumber: labels.cardNumber,
 										cardExpiration: labels.cardExpiration,
 										cardCVC: labels.cardCVC,
 										confirm: labels.confirm,
+										coupon: labels.coupon,
 									}}
 								/>
 							</div>
@@ -118,7 +126,10 @@ SubscribeModal.propTypes = {
 	onClose: PropTypes.func,
 	disabled: PropTypes.bool,
 	apiKey: PropTypes.string,
+	hasCoupon: PropTypes.bool,
 	onClickLogin: PropTypes.func,
+	error: PropTypes.string,
+	success: PropTypes.string,
 	labels: PropTypes.shape({
 		title: PropTypes.string,
 		subTitle: PropTypes.string,
@@ -129,9 +140,11 @@ SubscribeModal.propTypes = {
 		cardExpiration: PropTypes.string,
 		cardCVC: PropTypes.string,
 		confirm: PropTypes.string,
+		coupon: PropTypes.string,
 	}),
+	validateCoupon: PropTypes.func,
 	onProcessStarted: PropTypes.func,
-	plans: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, label: PropTypes.string, discountLabel: PropTypes.string })),
+	plans: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, hasCoupon: PropTypes.bool, label: PropTypes.string, discountLabel: PropTypes.string })),
 	color: PropTypes.oneOf(["primary", "secondary"]),
 }
 

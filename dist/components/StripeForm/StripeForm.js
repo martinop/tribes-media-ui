@@ -7,13 +7,17 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _classnames = _interopRequireDefault(require("classnames"));
+
 var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _debounce = _interopRequireDefault(require("lodash/debounce"));
 
 var _reactStripeElements = require("react-stripe-elements");
 
-require("./style.css");
-
 var _Button = _interopRequireDefault(require("../Button"));
+
+require("./style.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37,14 +41,28 @@ function StripeForm(props) {
   var onSubmit = props.onSubmit,
       disabled = props.disabled,
       labels = props.labels,
+      success = props.success,
+      error = props.error,
+      validateCoupon = props.validateCoupon,
+      hasCoupon = props.hasCoupon,
       stripe = props.stripe,
       planSelected = props.planSelected;
-  var elementClass = "card-form-input text-base text-center p-3";
+  var elementClass = "card-form-input p-3 w-full";
 
   var _React$useState = _react.default.useState(''),
       _React$useState2 = _slicedToArray(_React$useState, 2),
-      error = _React$useState2[0],
+      _error = _React$useState2[0],
       setError = _React$useState2[1];
+
+  var _React$useState3 = _react.default.useState(''),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      couponText = _React$useState4[0],
+      setCouponText = _React$useState4[1]; // eslint-disable-next-line react-hooks/exhaustive-deps
+
+
+  var debouncedValidation = _react.default.useCallback((0, _debounce.default)(function (input) {
+    return validateCoupon(input);
+  }, 500), [validateCoupon]);
 
   function _onSubmit(_x) {
     return _onSubmit2.apply(this, arguments);
@@ -73,7 +91,7 @@ function StripeForm(props) {
               return _context.abrupt("return");
 
             case 7:
-              onSubmit(planSelected, token.token.id);
+              onSubmit(planSelected, token.token.id, couponText);
 
             case 8:
             case "end":
@@ -85,12 +103,24 @@ function StripeForm(props) {
     return _onSubmit2.apply(this, arguments);
   }
 
+  function onChangeCoupon(e) {
+    setCouponText(e.target.value);
+
+    if (validateCoupon) {
+      debouncedValidation(e.target.value);
+    }
+  }
+
+  _react.default.useEffect(function () {
+    if (!!success && !!_error) {
+      setError('');
+    }
+  }, [_error, success]);
+
   return /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: _onSubmit,
     className: "w-full stripe-form font-poppins"
-  }, error && /*#__PURE__*/_react.default.createElement("p", {
-    className: "text-red-500 mb-4"
-  }, error), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "mb-2"
   }, /*#__PURE__*/_react.default.createElement("span", {
     className: "text-xs text-white font-normal"
@@ -106,7 +136,20 @@ function StripeForm(props) {
     className: "text-xs text-white font-normal"
   }, labels.cardCVC), /*#__PURE__*/_react.default.createElement(_reactStripeElements.CardCvcElement, {
     className: elementClass
-  })), /*#__PURE__*/_react.default.createElement(_Button.default, {
+  })), hasCoupon && /*#__PURE__*/_react.default.createElement("div", {
+    className: "mt-2"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "text-xs text-white font-normal"
+  }, labels.coupon), /*#__PURE__*/_react.default.createElement("input", {
+    className: (0, _classnames.default)("block", elementClass),
+    onChange: onChangeCoupon,
+    placeholder: labels.coupon,
+    value: couponText
+  })), (!!error || !!_error) && /*#__PURE__*/_react.default.createElement("p", {
+    className: "text-red-500 mt-4"
+  }, error || _error), success && /*#__PURE__*/_react.default.createElement("p", {
+    className: "text-white mt-4"
+  }, success), /*#__PURE__*/_react.default.createElement(_Button.default, {
     disabled: disabled,
     className: "w-full mt-10",
     label: labels.confirm,
@@ -118,11 +161,16 @@ StripeForm.propTypes = {
   onSubmit: _propTypes.default.func,
   disabled: _propTypes.default.bool,
   planSelected: _propTypes.default.string,
+  hasCoupon: _propTypes.default.bool,
+  error: _propTypes.default.string,
+  success: _propTypes.default.string,
   labels: _propTypes.default.shape({
     cardNumber: _propTypes.default.string,
     cardExpiration: _propTypes.default.string,
     cardCVC: _propTypes.default.string,
-    confirm: _propTypes.default.string
+    confirm: _propTypes.default.string,
+    coupon: _propTypes.default.string,
+    validateCoupon: _propTypes.default.func
   })
 };
 

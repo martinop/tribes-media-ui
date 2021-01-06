@@ -43,9 +43,12 @@ function SubscribeModal(props) {
       plans = props.plans,
       apiKey = props.apiKey,
       onClickLogin = props.onClickLogin,
+      success = props.success,
       disabled = props.disabled,
       labels = props.labels,
       onSubmit = props.onSubmit,
+      error = props.error,
+      validateCoupon = props.validateCoupon,
       onProcessStarted = props.onProcessStarted;
 
   var _React$useState = _react.default.useState(false),
@@ -124,11 +127,18 @@ function SubscribeModal(props) {
     onSubmit: onSubmit,
     disabled: disabled,
     planSelected: planSelected,
+    hasCoupon: plans.some(function (plan) {
+      return plan.id === planSelected && plan.hasCoupon;
+    }),
+    validateCoupon: validateCoupon,
+    error: error,
+    success: success,
     labels: {
       cardNumber: labels.cardNumber,
       cardExpiration: labels.cardExpiration,
       cardCVC: labels.cardCVC,
-      confirm: labels.confirm
+      confirm: labels.confirm,
+      coupon: labels.coupon
     }
   }))))));
 }
@@ -139,7 +149,10 @@ SubscribeModal.propTypes = {
   onClose: _propTypes.default.func,
   disabled: _propTypes.default.bool,
   apiKey: _propTypes.default.string,
+  hasCoupon: _propTypes.default.bool,
   onClickLogin: _propTypes.default.func,
+  error: _propTypes.default.string,
+  success: _propTypes.default.string,
   labels: _propTypes.default.shape({
     title: _propTypes.default.string,
     subTitle: _propTypes.default.string,
@@ -149,11 +162,14 @@ SubscribeModal.propTypes = {
     cardNumber: _propTypes.default.string,
     cardExpiration: _propTypes.default.string,
     cardCVC: _propTypes.default.string,
-    confirm: _propTypes.default.string
+    confirm: _propTypes.default.string,
+    coupon: _propTypes.default.string
   }),
+  validateCoupon: _propTypes.default.func,
   onProcessStarted: _propTypes.default.func,
   plans: _propTypes.default.arrayOf(_propTypes.default.shape({
     id: _propTypes.default.string,
+    hasCoupon: _propTypes.default.bool,
     label: _propTypes.default.string,
     discountLabel: _propTypes.default.string
   })),

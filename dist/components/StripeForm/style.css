@@ -1,8 +1,20 @@
 form.stripe-form .card-form-input {
 	border-radius: 3px;
 	font-weight: 500;
-	line-height: 24px;
-	letter-spacing: 0.05em;
 	background: rgba(255, 255, 255, 0.7);
 	margin-top: 1px;
+	height: 40.8px;
+	text-align: left;
+	font-family: sans-serif;
+	font-size: 14px;
+	line-height: 1.2em;
+	letter-spacing: normal;
 }
+
+form.stripe-form .card-form-input:focus {
+	outline: none;
+}
+form.stripe-form .card-form-input::placeholder {
+	color: #757378;
+}
+
