@@ -53,8 +53,10 @@ function SignupModal(props) {
     id: "signup-modal",
     onClose: onClose,
     className: "signup-modal pt-20"
-  }, /*#__PURE__*/_react.default.createElement("div", null, logo), /*#__PURE__*/_react.default.createElement("h3", {
-    className: "text-sm uppercase text-center text-white font-bold mt-6 mb-16"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "hidden lg:block"
+  }, logo), /*#__PURE__*/_react.default.createElement("h3", {
+    className: "text-sm uppercase text-center text-white font-bold mt-6 mb-16 hidden lg:block"
   }, labels.title), /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: formik.handleSubmit,
     className: "w-full sm:w-3/5"

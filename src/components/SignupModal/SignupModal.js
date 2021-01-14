@@ -30,10 +30,10 @@ function SignupModal(props) {
 			onClose={onClose}
 			className="signup-modal pt-20"
 		>
-			<div>
+			<div className="hidden lg:block">
 				{logo}
 			</div>
-			<h3 className="text-sm uppercase text-center text-white font-bold mt-6 mb-16">{labels.title}</h3>
+			<h3 className="text-sm uppercase text-center text-white font-bold mt-6 mb-16 hidden lg:block">{labels.title}</h3>
 			<form onSubmit={formik.handleSubmit} className="w-full sm:w-3/5">
 				<div className="flex flex-col w-full"> 
 					<Input
