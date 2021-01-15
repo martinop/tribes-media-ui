@@ -16,6 +16,8 @@ module.exports = {
       colors: {
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
+        'error': '#B50000',
+        'success': '#00B512',
       },
     },
     screens: {

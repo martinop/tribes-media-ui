@@ -21,6 +21,8 @@ var _StripeForm = _interopRequireDefault(require("../StripeForm/StripeForm"));
 
 require("./styles.css");
 
+var _PlansBox = _interopRequireDefault(require("../PlansBox"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -51,20 +53,14 @@ function SubscribeModal(props) {
       validateCoupon = props.validateCoupon,
       onProcessStarted = props.onProcessStarted;
 
-  var _React$useState = _react.default.useState(false),
+  var _React$useState = _react.default.useState(null),
       _React$useState2 = _slicedToArray(_React$useState, 2),
-      termsAndConditions = _React$useState2[0],
-      setTermsAndConditions = _React$useState2[1];
-
-  var _React$useState3 = _react.default.useState(null),
-      _React$useState4 = _slicedToArray(_React$useState3, 2),
-      planSelected = _React$useState4[0],
-      setPlanSelected = _React$useState4[1];
+      planSelected = _React$useState2[0],
+      setPlanSelected = _React$useState2[1];
 
   function _onClose() {
     onClose();
     setTimeout(function () {
-      setTermsAndConditions(false);
       setPlanSelected(null);
     }, 300);
   }
@@ -83,45 +79,18 @@ function SubscribeModal(props) {
     apiKey: apiKey
   }, /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, logo), /*#__PURE__*/_react.default.createElement("h3", {
     className: "text-sm uppercase text-center text-white font-bold mt-6 mb-3"
-  }, labels.title), !planSelected && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", {
-    className: "text-2xl uppercase text-center text-white font-bold"
-  }, labels.subTitle), /*#__PURE__*/_react.default.createElement("div", {
-    className: "text-center text-white text-sm leading-7 my-2"
-  }, labels.details), /*#__PURE__*/_react.default.createElement("div", {
-    className: "w-full sm:w-2/3"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex flex-col w-full"
-  }, plans.map(function (plan) {
-    return /*#__PURE__*/_react.default.createElement("div", {
-      className: "mt-8",
-      key: "plan-".concat(plan.id)
-    }, /*#__PURE__*/_react.default.createElement(_Button.default, {
-      className: "w-full",
-      disabled: !termsAndConditions,
-      onClick: function onClick() {
-        return onChangePlan(plan.id);
-      },
-      color: color,
-      label: plan.label
-    }), plan.discountLabel && /*#__PURE__*/_react.default.createElement("p", {
-      className: "text-white text-sm mt-1 text-center font-medium"
-    }, plan.discountLabel));
-  })), /*#__PURE__*/_react.default.createElement("div", {
-    className: "mx-auto w-full sm:w-5/6"
-  }, /*#__PURE__*/_react.default.createElement(_Checkbox.default, {
-    onChange: function onChange() {
-      return setTermsAndConditions(!termsAndConditions);
-    },
-    className: "mt-4",
+  }, labels.title), !planSelected && /*#__PURE__*/_react.default.createElement(_PlansBox.default, {
     color: color,
-    id: "subscribe-modal-terms",
-    value: termsAndConditions,
-    label: labels.termsAndConditions
-  })), /*#__PURE__*/_react.default.createElement("button", {
-    type: "button",
-    onClick: onClickLogin,
-    className: "mx-auto block mt-10 text-white text-center underline text-base self-center"
-  }, labels.login))), planSelected && /*#__PURE__*/_react.default.createElement(_reactStripeElements.Elements, null, /*#__PURE__*/_react.default.createElement("div", {
+    onClickLogin: onClickLogin,
+    plans: plans,
+    onChangePlan: onChangePlan,
+    labels: {
+      subTitle: labels.subTitle,
+      details: labels.details,
+      termsAndConditions: labels.termsAndConditions,
+      login: labels.login
+    }
+  }), planSelected && /*#__PURE__*/_react.default.createElement(_reactStripeElements.Elements, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "w-full sm:w-2/3 flex flex-col mt-6"
   }, /*#__PURE__*/_react.default.createElement(_StripeForm.default, {
     onSubmit: onSubmit,

@@ -9,6 +9,16 @@ const story = {
 
 export const Main = () => {
 	const [open, setOpen] = React.useState(false);
+	const [selectedPlan, setSelectedPlan] = React.useState('TEST');
+	const [messages, setMessages] = React.useState({ success: '', error: '' });
+
+	function onCancel() {
+		setMessages({
+			error: 'We have problems with your request, please try again.',
+			success: ''//'We cancel your subscription, you can come back whenever you like.',
+		})
+		// setSelectedPlan('')
+	}
 	return (
 		<div>
 			<button onClick={() => setOpen(true)}>Open Modal</button>
@@ -20,8 +30,10 @@ export const Main = () => {
 				<EditSubModal
 					open={open}
 					onClose={() => setOpen(false)}
-					onCancel={console.log}
+					onCancel={onCancel}
 					apiKey="null"
+					errorMessage={messages.error}
+					successMessage={messages.success}
 					labels={{
 						title: "STEP INTO THE UNKNOWN",
 						save: "Save",
@@ -33,12 +45,30 @@ export const Main = () => {
 						cardCVC: "CVC",
 						cardExpiration: "Expiration",
 						confirm: "Confirm",
-						unavailable: "Ya posee suscripción. Disfrute!"
+						yesAgree: "Yes, I agree",
+						unavailable: "",
+						plansSubTitle: "START YOUR SUBSCRIPTION",
+						plansDetails: (
+							<>
+								Start with a 7 days free trial.<br/>
+								Cancel anytime.
+							</>
+						),
+						termsAndConditions: (
+							<>
+								I agree the <a href="/">Terms and conditions</a> & <a href="/">Privacy Policy</a>
+							</>
+						)
 					}}
-					planSelected=""
+					planSelected={selectedPlan}
+					onChangePlan={setSelectedPlan}
 					list={["Many content per month", "Watch on any device", "Unlimited entertainment"]}
 					language="en"
 					onSubmit={values => alert(JSON.stringify(values, null, 2))}
+					plans={[
+						{ id: "price_1HPYVOIElqLJlzgQAkmMYUJS", hasCoupon: true, label: "$29.99 / yearly", discountLabel: "55% discount, 3.99 monthly" },
+						{ id: "price_1HPYVnIElqLJlzgQJYQrggVh", label: "$5.99 / monthly" },
+					]}
 					logo={
 						<svg width="216" height="50" viewBox="0 0 216 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M59.6846 15.6811L49.7964 0.455078H33V27.4856H44.92V10.6628L56.1627 27.4856H62.3936L73.7041 10.6628V27.4856H85.8273V0.455078H69.6405L59.6846 15.6811Z" fill="white"/>
