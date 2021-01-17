@@ -134,6 +134,7 @@ function EditSubModal(props) {
 										onClick={() => setShowForm(true)}
 										className="w-full sm:w-4/5 md:mx-auto"
 										type="submit"
+										disabled={disabled}
 										color={color}
 									/>
 									{labels.discount && (
@@ -143,6 +144,7 @@ function EditSubModal(props) {
 							)}
 							<button
 								onClick={() => setShowAgree(!showAgree)}
+								disabled={disabled}
 								className="text-center text-white font-bold text-sm mt-4"
 							>
 								{labels.cancel}
@@ -154,6 +156,7 @@ function EditSubModal(props) {
 									className="mt-4"
 									type="submit"
 									color={color}
+									disabled={disabled}
 								/>
 							)}
 						</>

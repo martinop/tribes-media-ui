@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StripeProvider, Elements } from 'react-stripe-elements';
 import Modal from '../Modal';
-import Button from '../Button';
-import Checkbox from '../Checkbox';
 import StripeForm from '../StripeForm/StripeForm';
 import './styles.css';
 import PlansBox from '../PlansBox';

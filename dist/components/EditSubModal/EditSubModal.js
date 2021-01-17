@@ -197,6 +197,7 @@ function EditSubModal(props) {
     },
     className: "w-full sm:w-4/5 md:mx-auto",
     type: "submit",
+    disabled: disabled,
     color: color
   }), labels.discount && /*#__PURE__*/_react.default.createElement("p", {
     className: "text-white text-sm my-1 text-center font-medium"
@@ -204,13 +205,15 @@ function EditSubModal(props) {
     onClick: function onClick() {
       return setShowAgree(!showAgree);
     },
+    disabled: disabled,
     className: "text-center text-white font-bold text-sm mt-4"
   }, labels.cancel), showAgree && /*#__PURE__*/_react.default.createElement(_Button.default, {
     label: labels.yesAgree,
     onClick: _onCancel,
     className: "mt-4",
     type: "submit",
-    color: color
+    color: color,
+    disabled: disabled
   })), showForm && /*#__PURE__*/_react.default.createElement(_reactStripeElements.Elements, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "w-full sm:w-2/3 flex flex-col mt-6"
   }, /*#__PURE__*/_react.default.createElement(_StripeForm.default, {

@@ -13,10 +13,6 @@ var _reactStripeElements = require("react-stripe-elements");
 
 var _Modal = _interopRequireDefault(require("../Modal"));
 
-var _Button = _interopRequireDefault(require("../Button"));
-
-var _Checkbox = _interopRequireDefault(require("../Checkbox"));
-
 var _StripeForm = _interopRequireDefault(require("../StripeForm/StripeForm"));
 
 require("./styles.css");
