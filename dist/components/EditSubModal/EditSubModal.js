@@ -117,7 +117,7 @@ function EditSubModal(props) {
     d: "M18.2546 12.5587C18.0852 12.4231 17.848 12.4231 17.6786 12.5587C17.6108 12.6141 16.4434 13.5598 15.7842 14.9213C14.7677 14.413 13.6434 14.1451 12.5006 14.1451C10.1225 14.1451 7.94167 15.2632 6.51855 17.21C6.36762 17.4164 6.41382 17.7059 6.6202 17.8569C6.70337 17.9185 6.79886 17.9462 6.89127 17.9462C7.03297 17.9462 7.17466 17.8815 7.26399 17.7552C8.51153 16.0487 10.4213 15.0692 12.5006 15.0692C13.5325 15.0692 14.5459 15.3217 15.4608 15.7961C15.3838 16.0918 15.3375 16.3968 15.3375 16.711C15.3375 18.1618 16.5173 19.3416 17.9682 19.3416C19.419 19.3416 20.5988 18.1618 20.5988 16.711C20.5988 14.45 18.3501 12.6357 18.2546 12.5587ZM17.9682 18.4144C17.0287 18.4144 16.2616 17.6505 16.2616 16.7079C16.2616 15.3248 17.4168 14.0619 17.9682 13.5382C18.5195 14.0619 19.6747 15.3248 19.6747 16.7079C19.6747 17.6505 18.9077 18.4144 17.9682 18.4144Z",
     fill: "white"
   }))), /*#__PURE__*/_react.default.createElement("p", {
-    className: "ml-2 leading-tight"
+    className: "ml-2 my-auto leading-tight"
   }, successMessage)), errorMessage && !successMessage && !showForm && /*#__PURE__*/_react.default.createElement("div", {
     className: "bg-error w-full text-white inline-flex items-center py-2 px-4 mb-10"
   }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("svg", {
@@ -145,7 +145,7 @@ function EditSubModal(props) {
     d: "M8.90192 19.5012C8.82491 19.5012 8.74482 19.4827 8.67397 19.4395C8.45527 19.3133 8.37518 19.0329 8.50147 18.8112C8.58156 18.6725 10.5068 15.4043 16.227 16.3284C16.4795 16.3685 16.649 16.6056 16.6089 16.8582C16.5689 17.1108 16.3317 17.2833 16.0791 17.2402C11.0273 16.427 9.37013 19.1531 9.30236 19.2701C9.21611 19.418 9.06209 19.5012 8.90192 19.5012Z",
     fill: "white"
   }))), /*#__PURE__*/_react.default.createElement("p", {
-    className: "ml-2 leading-tight"
+    className: "ml-2 my-auto leading-tight"
   }, errorMessage)), showAllPlans && /*#__PURE__*/_react.default.createElement(_PlansBox.default, {
     color: color,
     plans: plans,
