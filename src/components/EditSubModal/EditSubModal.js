@@ -25,6 +25,9 @@ function EditSubModal(props) {
 		language,
 		errorMessage,
 		successMessage,
+		couponError,
+		couponSuccess,
+		validateCoupon,
 		plans,
 	} = props;
 	const [showForm, setShowForm] = React.useState(false);
@@ -168,11 +171,16 @@ function EditSubModal(props) {
 									onSubmit={onSubmit}
 									disabled={disabled}
 									planSelected={planSelected}
+									hasCoupon={plans.some(plan => plan.id === planSelected && plan.hasCoupon)}
+									validateCoupon={validateCoupon}
+									error={couponError}
+									success={couponSuccess}
 									labels={{
 										cardNumber: labels.cardNumber,
 										cardExpiration: labels.cardExpiration,
 										cardCVC: labels.cardCVC,
 										confirm: labels.confirm,
+										coupon: labels.coupon,
 									}}
 								/>
 							</div>
@@ -199,6 +207,7 @@ EditSubModal.propTypes = {
 	successMessage: PropTypes.string,
 	errorMessage: PropTypes.string,
 	onChangePlan: PropTypes.func,
+	validateCoupon: PropTypes.func,
 	labels: PropTypes.shape({
 		cancel: PropTypes.string,
 		title: PropTypes.string,
@@ -213,6 +222,7 @@ EditSubModal.propTypes = {
 		plansSubTitle: PropTypes.string,
 		plansDetails: PropTypes.string,
 		termsAndConditions: PropTypes.string,
+		coupon: PropTypes.string,
 	}),
 	plans: PropTypes.arrayOf(PropTypes.shape({
 		id: PropTypes.string,

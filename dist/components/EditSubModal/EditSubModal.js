@@ -53,6 +53,9 @@ function EditSubModal(props) {
       language = props.language,
       errorMessage = props.errorMessage,
       successMessage = props.successMessage,
+      couponError = props.couponError,
+      couponSuccess = props.couponSuccess,
+      validateCoupon = props.validateCoupon,
       plans = props.plans;
 
   var _React$useState = _react.default.useState(false),
@@ -220,11 +223,18 @@ function EditSubModal(props) {
     onSubmit: onSubmit,
     disabled: disabled,
     planSelected: planSelected,
+    hasCoupon: plans.some(function (plan) {
+      return plan.id === planSelected && plan.hasCoupon;
+    }),
+    validateCoupon: validateCoupon,
+    error: couponError,
+    success: couponSuccess,
     labels: {
       cardNumber: labels.cardNumber,
       cardExpiration: labels.cardExpiration,
       cardCVC: labels.cardCVC,
-      confirm: labels.confirm
+      confirm: labels.confirm,
+      coupon: labels.coupon
     }
   }))))));
 }
@@ -244,6 +254,7 @@ EditSubModal.propTypes = {
   successMessage: _propTypes.default.string,
   errorMessage: _propTypes.default.string,
   onChangePlan: _propTypes.default.func,
+  validateCoupon: _propTypes.default.func,
   labels: _propTypes.default.shape({
     cancel: _propTypes.default.string,
     title: _propTypes.default.string,
@@ -257,7 +268,8 @@ EditSubModal.propTypes = {
     confirm: _propTypes.default.string,
     plansSubTitle: _propTypes.default.string,
     plansDetails: _propTypes.default.string,
-    termsAndConditions: _propTypes.default.string
+    termsAndConditions: _propTypes.default.string,
+    coupon: _propTypes.default.string
   }),
   plans: _propTypes.default.arrayOf(_propTypes.default.shape({
     id: _propTypes.default.string,
